@@ -8,7 +8,7 @@ count = 0
 
 
 def parse_page(url: str, title: str = 'Index of /Python/',
-               path: str = '../tools/python-mirrors/',
+               path: str = '../docs/tools/python-mirrors/',
                filename: str = 'python.html', level: int = 1):
     global count
     if level == 2:
