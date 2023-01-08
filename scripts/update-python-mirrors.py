@@ -47,10 +47,7 @@ def parse_page(url: str, title: str = 'Index of /Python/',
 
 def gen_html(filename: str, title: str, contents: list):
     headers = [
-        '<html>',
-        f'<head><title>Jedore</title>',
-        '<link rel="shortcut icon" href="favicon.ico" >',
-        f'</head><body>',
+        '<html><head><title>Jedore</title></head><body>',
         f'<h1>{title}</h1>',
         '<hr><pre>',
         '<a href="../">../</a>',
