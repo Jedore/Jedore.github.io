@@ -15,9 +15,12 @@ jobs:
           cache: 'pip'
       - run: pip install -r requirements.txt
       - run: git pull -r
-#      - run: python scripts/update-python-mirrors.py
-      - uses: EndBug/add-and-commit@v9
-        with:
-#          pull: '--rebase'
-          add: 'docs/tools/python-mirrors'
-          message: 'Sync python mirrors.'
+      - run: python scripts/update-python-mirrors.py
+      - run: git add docs/tools/python-mirrors
+      - run: git commit -m "Sync python mirrors"
+      - run: git push
+#      - uses: EndBug/add-and-commit@v9
+#        with:
+##          pull: '--rebase'
+#          add: 'docs/tools/python-mirrors'
+#          message: 'Sync python mirrors.'

@@ -10,6 +10,8 @@ def parse_page(url: str, title: str = 'Index of /Python/',
                path: str = 'docs/tools/python-mirrors/', level: int = 1):
     if not os.path.exists(path):
         os.makedirs(path)
+    if level == 2:
+        print(title)
     rsp = requests.get(url)
     data = rsp.json()
     contents = []
