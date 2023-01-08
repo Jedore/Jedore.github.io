@@ -4,19 +4,13 @@ import time
 import requests
 
 BASE_URL = 'https://registry.npmmirror.com/-/binary/python/'
-count = 0
 
 
 def parse_page(url: str, title: str = 'Index of /Python/',
                path: str = '../docs/tools/python-mirrors/',
-               filename: str = 'python.html', level: int = 1):
-    global count
+               filename: str = 'index.html', level: int = 1):
     if level == 2:
-        if count > 5:
-            return
-        count += 1
         print(title)
-    time.sleep(1)
     if not os.path.exists(path):
         os.makedirs(path)
     rsp = requests.get(url)
@@ -24,12 +18,17 @@ def parse_page(url: str, title: str = 'Index of /Python/',
     contents = []
     for item in data:
         name = item.get('name')
+        if level == 1 and not name.replace('.', '').replace('/', '').isdigit():
+            continue
         date = item.get('date')
         size = str(item.get('size', '-'))
-        line = f'\n<a href="{name}">{name}</a>{" " * (52 - len(name))}{date}{size.rjust(20)}'
         if item.get('type') == 'dir':
+            href = name
             parse_page(url + name, title + name, path + name,
                        f'{name.strip("/")}.html', level + 1)
+        else:
+            href = item.get('url')
+        line = f'\n<a href="{href}">{name}</a>{" " * (52 - len(name))}{date}{size.rjust(20)}'
         contents.append(line)
 
     gen_html(path + filename, title, contents)
@@ -38,8 +37,9 @@ def parse_page(url: str, title: str = 'Index of /Python/',
 def gen_html(filename: str, title: str, contents: list):
     headers = [
         '<html>',
-        f'<head><title>{title}</title></head>',
-        '<body>',
+        f'<head><title>Jedore</title>',
+        '<link rel="shortcut icon" href="favicon.ico" >',
+        f'</head><body>',
         f'<h1>{title}</h1>',
         '<hr><pre>',
         '<a href="../">../</a>',
@@ -52,4 +52,7 @@ def gen_html(filename: str, title: str, contents: list):
 
 
 if __name__ == '__main__':
+    start = time.time()
     parse_page(BASE_URL)
+    end = time.time()
+    print('duration:', end - start)
