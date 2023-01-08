@@ -49,6 +49,7 @@ def gen_html(filename: str, title: str, contents: list):
     headers = [
         '<html><head><title>Jedore</title></head><body>',
         f'<h1>{title}</h1>',
+        'From: <a href="https://github.com/Jedore" target="_black">Jedore</a>',
         '<hr><pre>',
         '<a href="../">../</a>',
     ]
