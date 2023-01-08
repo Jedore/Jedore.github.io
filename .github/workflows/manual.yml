@@ -23,5 +23,5 @@ jobs:
       - run: python scripts/update-python-mirrors.py
       - uses: EndBug/add-and-commit@v9
         with:
-          add: 'docs/python-mirrors'
+          add: 'docs/tools/python-mirrors'
           message: 'Sync python mirrors.'

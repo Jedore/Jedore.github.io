@@ -66,5 +66,4 @@ def gen_html(filename: str, title: str, contents: list):
 if __name__ == '__main__':
     start = time.time()
     parse_page(BASE_URL)
-    end = time.time()
-    print('duration:', end - start)
+    print('Duration:', int(time.time() - start), 'seconds')
