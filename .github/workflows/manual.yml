@@ -28,6 +28,5 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
-          ref: 'main'
       - run: pip install -r requirements.txt
       - run: python scripts/test.py
