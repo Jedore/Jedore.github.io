@@ -1,7 +1,7 @@
 name: Build Python Mirrors
 on:
   schedule:
-    - cron: '38 19 * * *'
+    - cron: '42 11 * * *'
 
 jobs:
   build-python-mirrors:
