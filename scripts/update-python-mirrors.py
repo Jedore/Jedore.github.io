@@ -5,19 +5,11 @@ import requests
 
 BASE_URL = 'https://registry.npmmirror.com/-/binary/python/'
 
-count = 0
-
 
 def parse_page(url: str, title: str = 'Index of /Python/',
                path: str = 'docs/tools/python-mirrors/', level: int = 1):
-    global count
     if not os.path.exists(path):
         os.makedirs(path)
-    if level == 2:
-        print(title)
-        if count > 5:
-            return
-        count += 1
     rsp = requests.get(url)
     data = rsp.json()
     contents = []
