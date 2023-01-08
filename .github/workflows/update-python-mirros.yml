@@ -2,8 +2,7 @@ name: Build Python Mirrors
 on:
   workflow_dispatch:
   schedule:
-    # update python mirror every midnight
-    - cron: '0 0 * * 6'
+    - cron: '0 19 * * *'
 
 jobs:
   build-python-mirrors:
