@@ -27,6 +27,10 @@ def parse_page(url: str, title: str = 'Index of /Python/',
         if level == 1:
             if not _sort.isdigit():
                 continue
+            _sort = name.strip('/').split('.')
+            if len(_sort) == 2:
+                _sort.append('0')
+            _sort = [int(i) for i in _sort]
         date = item.get('date')
         size = str(item.get('size', '-'))
         if item.get('type') == 'dir':
@@ -41,7 +45,9 @@ def parse_page(url: str, title: str = 'Index of /Python/',
             contents.append(line)
     if sorts:
         print('Sync python version count:', len(sorts))
-        sorts.sort(key=lambda n: n[0])
+        sorts.sort(key=lambda n: n[0][2])
+        sorts.sort(key=lambda n: n[0][1])
+        sorts.sort(key=lambda n: n[0][0])
         contents = [i[1] for i in sorts]
     gen_html(path + 'index.html', title, contents)
 
