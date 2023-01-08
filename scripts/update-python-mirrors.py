@@ -5,10 +5,15 @@ import requests
 
 BASE_URL = 'https://registry.npmmirror.com/-/binary/python/'
 
+count = 0
 
 def parse_page(url: str, title: str = 'Index of /Python/',
-               path: str = '../docs/tools/python-mirrors/', level: int = 1):
+               path: str = 'docs/tools/python-mirrors/', level: int = 1):
+    global count
     if level == 2:
+        if count > 5:
+            return
+        count += 1
         print(title)
     if not os.path.exists(path):
         os.makedirs(path)
@@ -35,6 +40,7 @@ def parse_page(url: str, title: str = 'Index of /Python/',
         else:
             contents.append(line)
     if sorts:
+        print('Sync python version count:', len(sorts))
         sorts.sort(key=lambda n: n[0])
         contents = [i[1] for i in sorts]
     gen_html(path + 'index.html', title, contents)
