@@ -1,8 +1,7 @@
 name: Build Python Mirrors
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '38 19 * * *'
 
 jobs:
   build-python-mirrors:
