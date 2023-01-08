@@ -1,5 +1,6 @@
 name: Build Python Mirrors
 on:
+  workflow_dispatch:
   schedule:
     # update python mirror every midnight
     - cron: '0 0 * * 6'
@@ -14,5 +15,8 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - run: python scripts/test.py
-
+      - run: python scripts/update-python-mirrors.py
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'docs/tools/python-mirrors'
+          message: 'Sync python mirrors.'
