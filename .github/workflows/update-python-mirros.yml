@@ -1,7 +1,7 @@
 name: Build Python Mirrors
 on:
   schedule:
-    - cron: '42 11 * * *'
+    - cron: '40 12 * * *'
 
 jobs:
   build-python-mirrors:
@@ -16,5 +16,6 @@ jobs:
       - run: python scripts/update-python-mirrors.py
       - uses: EndBug/add-and-commit@v9
         with:
+          pull: '--rebase'
           add: 'docs/tools/python-mirrors'
           message: 'Sync python mirrors.'
