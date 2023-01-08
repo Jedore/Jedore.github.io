@@ -14,11 +14,9 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - run: git pull -r
       - run: python scripts/update-python-mirrors.py
-      - run: git status
-      - run: ls docs/tools/python-mirrors
       - run: git add docs/tools/python-mirrors
+      - run: git status
       - uses: EndBug/add-and-commit@v9
         with:
 ##          pull: '--rebase'
