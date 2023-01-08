@@ -21,3 +21,7 @@ jobs:
           cache: 'pip'
       - run: pip install -r requirements.txt
       - run: python scripts/update-python-mirrors.py
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'docs/python-mirrors'
+          message: 'Sync python mirrors.'
