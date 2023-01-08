@@ -2,7 +2,7 @@ name: Python Mirrors
 on:
   schedule:
     # update python mirror every midnight
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 6'
 
 jobs:
   update-python-mirrors:
@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout
       - uses: actions/setup-python
         with:
-          python-version: '3.7'
+          python-version: '3.10'
       - run: python 
 

@@ -7,8 +7,7 @@ BASE_URL = 'https://registry.npmmirror.com/-/binary/python/'
 
 
 def parse_page(url: str, title: str = 'Index of /Python/',
-               path: str = '../docs/tools/python-mirrors/',
-               filename: str = 'index.html', level: int = 1):
+               path: str = '../docs/tools/python-mirrors/', level: int = 1):
     if level == 2:
         print(title)
     if not os.path.exists(path):
@@ -16,22 +15,29 @@ def parse_page(url: str, title: str = 'Index of /Python/',
     rsp = requests.get(url)
     data = rsp.json()
     contents = []
+    sorts = []
     for item in data:
         name = item.get('name')
-        if level == 1 and not name.replace('.', '').replace('/', '').isdigit():
-            continue
+        _sort = name.replace('.', '').replace('/', '')
+        if level == 1:
+            if not _sort.isdigit():
+                continue
         date = item.get('date')
         size = str(item.get('size', '-'))
         if item.get('type') == 'dir':
             href = name
-            parse_page(url + name, title + name, path + name,
-                       f'{name.strip("/")}.html', level + 1)
+            parse_page(url + name, title + name, path + name, level + 1)
         else:
             href = item.get('url')
         line = f'\n<a href="{href}">{name}</a>{" " * (52 - len(name))}{date}{size.rjust(20)}'
-        contents.append(line)
-
-    gen_html(path + filename, title, contents)
+        if level == 1:
+            sorts.append((_sort, line))
+        else:
+            contents.append(line)
+    if sorts:
+        sorts.sort(key=lambda n: n[0])
+        contents = [i[1] for i in sorts]
+    gen_html(path + 'index.html', title, contents)
 
 
 def gen_html(filename: str, title: str, contents: list):
@@ -45,7 +51,7 @@ def gen_html(filename: str, title: str, contents: list):
         '<a href="../">../</a>',
     ]
     tails = [
-        '</pre><hr></body></html>'
+        '\n</pre><hr></body></html>'
     ]
     with open(filename, 'w') as fp:
         fp.writelines(headers + contents + tails)
