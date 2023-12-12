@@ -1,0 +1,6 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh'
+title = '小破圈'
+#theme = 'stack-3.21.0'
+enableEmoji = true
+enableGitInfo = true
