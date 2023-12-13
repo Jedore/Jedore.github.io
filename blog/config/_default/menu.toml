@@ -1,0 +1,64 @@
+# Configure main menu and social menu
+[[main]]
+identifier = "home"
+name = "主页"
+url = "/"
+weight = 1
+[main.params]
+icon = "home"
+newtab = false
+
+[[main]]
+identifier = "about"
+name = "关于"
+url = "/about"
+weight = 10
+[main.params]
+icon = "man"
+newtab = false
+
+
+
+[[social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/Jedore"
+[social.params]
+icon = "brand-github"
+
+[[social]]
+identifier = "zhihu"
+name = "zhihu"
+url = "https://www.zhihu.com/people/cui-bao-chang"
+[social.params]
+icon = "brand-zhihu"
+
+[[social]]
+identifier = "stackoverflow"
+name = "StackoverFlow"
+url = "https://stackoverflow.com/users/6776842/jedore"
+[social.params]
+icon = "brand-stackoverflow"
+
+[[social]]
+identifier = "juejin"
+name = "juejin"
+url = "https://juejin.cn/user/1548528112131463"
+[social.params]
+icon = "brand-juejin"
+
+[[social]]
+identifier = "main"
+name = "Gmail"
+url = "mailto:jedorefight@gmail.com"
+[social.params]
+icon = "mail"
+
+
+#[[social]]
+#identifier = "twitter"
+#name = "Twitter"
+#url = "https://twitter.com"
+
+#[social.params]
+#icon = "brand-twitter"

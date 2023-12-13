@@ -1,0 +1,7 @@
+baseURL = ''
+languageCode = 'zh'
+title = 'Jedore'
+#theme = 'stack-3.21.0'
+enableEmoji = true
+enableGitInfo = true
+defaultContentLanguage = 'zh-cn'
