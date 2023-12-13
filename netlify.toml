@@ -1,5 +1,5 @@
 [build]
-    publish = "docs/blog"
+    publish = "docs"
 
 [build.environment]
     HUGO_VERSION = "0.121.1"
