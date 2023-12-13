@@ -7,7 +7,7 @@
 
 [context.production]
     # command = "cd exampleSite && hugo --gc --themesDir ../.. -b ${URL}"
-    command = "cd blog && hugo --gc --destination ../docs/blog -b ${HUGO_BASE_URL}"
+    command = "cd blog && hugo --gc --minify --destination ../docs/blog -b ${HUGO_BASE_URL}"
     [context.production.environment]
         HUGO_ENV = "production"
 
