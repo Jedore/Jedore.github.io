@@ -9,12 +9,12 @@ since = 2023
 customText = ""
 
 [dateFormat]
-published = "2006/01/02"
-lastUpdated = "Jan 02, 2006 15:04 MST"
+published = "2006/01/02 MST"
+lastUpdated = "2006/01/02 15:04 MST"
 
 [sidebar]
 emoji = "🐍"
-subtitle = "Talk is cheap, show me the code"
+subtitle = "talk is cheap, show me the code"
 
 [sidebar.avatar]
 enabled = true
