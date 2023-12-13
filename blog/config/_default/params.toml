@@ -2,24 +2,24 @@
 mainSections = ["post"]
 # Output page's full content in RSS.
 #rssFullContent = true
-favicon = "/favicon.jpg"
+favicon = "/blog/favicon.ico"
 
 [footer]
 since = 2023
 customText = ""
 
 [dateFormat]
-published = "2006/01/02 MST"
-lastUpdated = "2006/01/02 15:04 MST"
+published = "2006/01/02 15:04"
+lastUpdated = "2006/01/02 15:04"
 
 [sidebar]
-emoji = "🐍"
+emoji = "👨‍💻🛠️"
 subtitle = "talk is cheap, show me the code"
 
 [sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.jpg"
+src = "img/avatar.png"
 
 [article]
 math = true

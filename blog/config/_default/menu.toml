@@ -15,7 +15,7 @@ url = "/about"
 weight = 10
 [main.params]
 icon = "man"
-newtab = true
+newtab = false
 
 
 
@@ -49,7 +49,7 @@ icon = "brand-juejin"
 
 [[social]]
 identifier = "main"
-name = "mail"
+name = "Gmail"
 url = "mailto:jedorefight@gmail.com"
 [social.params]
 icon = "mail"

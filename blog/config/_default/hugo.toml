@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = ''
 languageCode = 'zh'
 title = 'Jedore'
 #theme = 'stack-3.21.0'
