@@ -34,8 +34,8 @@ default = "Licensed under CC BY-NC-SA 4.0"
 [[widgets.homepage]]
 type = "search"
 
-[[widgets.homepage]]
-type = "archives"
+#[[widgets.homepage]]
+#type = "archives"
 
 [widgets.homepage.params]
 limit = 5
@@ -51,6 +51,9 @@ type = "tag-cloud"
 
 [widgets.homepage.params]
 limit = 10
+
+[[widgets.page]]
+type = "search"
 
 [[widgets.page]]
 type = "toc"
