@@ -4,8 +4,8 @@ unsafe = true
 
 [tableOfContents]
 ordered = false
-startLevel = 1
-endLevel = 3
+startLevel = 3
+endLevel = 5
 
 [highlight]
 noClasses = false
