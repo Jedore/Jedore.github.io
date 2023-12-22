@@ -1,7 +1,131 @@
 baseURL = ''
 languageCode = 'zh'
-title = '小破圈'
+title = 'Jedore小破圈'
 #theme = 'stack-3.21.0'
 enableEmoji = true
 enableGitInfo = true
 defaultContentLanguage = 'zh-cn'
+
+[languages]
+[languages.zh-cn]
+contentDir = 'content/zh-cn'
+disabled = false
+languageCode = 'zh'
+languageName = '简体中文'
+#title = 'Jedore小破圈'
+weight = 1
+
+[[languages.zh-cn.menu.main]]
+identifier = "home"
+name = "主页"
+url = "/"
+weight = 1
+[[languages.zh-cn.menu.main.params]]
+icon = "home"
+newtab = false
+
+[[languages.zh-cn.menu.main]]
+identifier = "about"
+name = "关于"
+url = "/about"
+weight = 10
+[[languages.zh-cn.menu.main.params]]
+icon = "message-chatbot"
+newtab = false
+
+[[languages.zh-cn.menu.social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/Jedore"
+[languages.zh-cn.menu.social.params]
+icon = "brand-github"
+
+[[languages.zh-cn.menu.social]]
+identifier = "zhihu"
+name = "zhihu"
+url = "https://www.zhihu.com/people/cui-bao-chang"
+[languages.zh-cn.menu.social.params]
+icon = "brand-zhihu"
+
+#[[languages.zh-cn.menu.social]]
+#identifier = "stackoverflow"
+#name = "StackoverFlow"
+#url = "https://stackoverflow.com/users/6776842/jedore"
+#[languages.zh-cn.menu.social.params]
+#icon = "brand-stackoverflow"
+
+[[languages.zh-cn.menu.social]]
+identifier = "juejin"
+name = "juejin"
+url = "https://juejin.cn/user/1548528112131463"
+[languages.zh-cn.menu.social.params]
+icon = "brand-juejin"
+
+[[languages.zh-cn.menu.social]]
+identifier = "mail"
+name = "Gmail"
+url = "mailto:jedorefight@gmail.com"
+[languages.zh-cn.menu.social.params]
+icon = "mail"
+
+
+[languages.en]
+contentDir = 'content/en'
+disabled = false
+languageCode = 'en-US'
+languageName = 'English'
+#title = 'Jedore Little Breakage Circle'
+weight = 2
+
+[[languages.en.menu.main]]
+identifier = "home"
+name = "Home"
+url = "/en"
+weight = 1
+[[languages.en.menu.main.params]]
+icon = "home"
+newtab = false
+
+[[languages.en.menu.main]]
+identifier = "about"
+name = "About"
+url = "/en/about"
+weight = 10
+[[languages.en.menu.main.params]]
+icon = "message-chatbot"
+newtab = false
+
+[[languages.en.menu.social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/Jedore"
+[languages.en.menu.social.params]
+icon = "brand-github"
+
+[[languages.en.menu.social]]
+identifier = "zhihu"
+name = "zhihu"
+url = "https://www.zhihu.com/people/cui-bao-chang"
+[languages.en.menu.social.params]
+icon = "brand-zhihu"
+
+#[[languages.en.menu.social]]
+#identifier = "stackoverflow"
+#name = "StackoverFlow"
+#url = "https://stackoverflow.com/users/6776842/jedore"
+#[languages.en.menu.social.params]
+#icon = "brand-stackoverflow"
+
+[[languages.en.menu.social]]
+identifier = "juejin"
+name = "juejin"
+url = "https://juejin.cn/user/1548528112131463"
+[languages.en.menu.social.params]
+icon = "brand-juejin"
+
+[[languages.en.menu.social]]
+identifier = "mail"
+name = "Gmail"
+url = "mailto:jedorefight@gmail.com"
+[languages.en.menu.social.params]
+icon = "mail"

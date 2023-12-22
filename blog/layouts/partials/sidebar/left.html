@@ -78,7 +78,41 @@
         <div class="menu-bottom-section">
             {{- $currentLanguageCode := .Language.Lang -}}
             {{ with .Site.Home.AllTranslations }}
-                <li id="i18n-switch">  
+                <ol class="social-menu">
+                    <li>
+                        <a href="https://jedore.github.io/blog" target="_blank" title="AlternateSite: GithubPages">
+                        {{ $icon := "brand-github-filled" }}
+                        {{ with $icon }}
+                            {{ partial "helper/icon" . }}
+                        {{ end }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://jedore-github-io.pages.dev/blog/" target="_blank" title="AlternateSite: Cloudflare">
+                        {{ $icon := "brand-cloudflare" }}
+                        {{ with $icon }}
+                            {{ partial "helper/icon" . }}
+                        {{ end }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://jedore.netlify.app/blog" target="_blank" title="AlternateSite: Netlify">
+                        {{ $icon := "netlify" }}
+                        {{ with $icon }}
+                            {{ partial "helper/icon" . }}
+                        {{ end }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://jedore.onrender.com/blog" target="_blank" title="AlternateSite: Render">
+                            {{ $avatar := resources.Get ("img/render.png") }}
+                            {{ $avatarResized := $avatar.Resize "15x" }}
+                            <img src="{{ $avatarResized.RelPermalink }}" width="{{ $avatarResized.Width }}"
+                                height="{{ $avatarResized.Height }}" class="site-logo" loading="lazy" alt="Avatar">
+                        </a>
+                    </li>
+                </ol>
+                <li id="i18n-switch">
                     {{ partial "helper/icon" "language" }}
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         {{ range . }}

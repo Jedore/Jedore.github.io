@@ -1,23 +1,4 @@
 # Configure main menu and social menu
-[[main]]
-identifier = "home"
-name = "主页"
-url = "/"
-weight = 1
-[main.params]
-icon = "home"
-newtab = false
-
-[[main]]
-identifier = "about"
-name = "关于"
-url = "/about"
-weight = 10
-[main.params]
-icon = "man"
-newtab = false
-
-
 
 [[social]]
 identifier = "github"
@@ -48,7 +29,7 @@ url = "https://juejin.cn/user/1548528112131463"
 icon = "brand-juejin"
 
 [[social]]
-identifier = "main"
+identifier = "mail"
 name = "Gmail"
 url = "mailto:jedorefight@gmail.com"
 [social.params]

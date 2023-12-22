@@ -13,8 +13,8 @@ published = "2006/01/02 15:04"
 lastUpdated = "2006/01/02 15:04"
 
 [sidebar]
-emoji = "👨‍💻🛠️"
-subtitle = "小破圈在破圈路上的见闻"
+emoji = "👨‍💻"
+subtitle = ""
 
 [sidebar.avatar]
 enabled = true
