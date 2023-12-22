@@ -13,8 +13,8 @@ published = "2006/01/02 15:04"
 lastUpdated = "2006/01/02 15:04"
 
 [sidebar]
-emoji = "👨‍💻🛠️"
-subtitle = "talk is cheap, show me the code"
+emoji = "👨‍💻"
+subtitle = ""
 
 [sidebar.avatar]
 enabled = true

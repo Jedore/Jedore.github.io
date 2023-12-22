@@ -13,7 +13,14 @@
             {{ . | safeHTML }} <br/>
         {{ end }}
 
-        {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
+        Supports by
+        <a href="https://www.netlify.com" target="_blank"><strong>Netlify</strong></a> |
+        <a href="https://pages.github.com/" target="_blank"><strong>GithubPages</strong></a> |
+        <a href="https://render.com/" target="_blank"><strong>Render</strong></a> |
+        <a href="https://www.cloudflare.com/" target="_blank"><strong>Cloudflare</strong></a>
+        <br>
+
+        {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener"><strong>Hugo</strong></a>` -}}
         {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
         {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
 
