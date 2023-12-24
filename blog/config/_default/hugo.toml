@@ -1,6 +1,6 @@
 baseURL = ''
 languageCode = 'zh'
-title = 'Jedore小破圈'
+title = '借刀破圈'
 #theme = 'stack-3.21.0'
 enableEmoji = true
 enableGitInfo = true

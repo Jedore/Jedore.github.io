@@ -27,11 +27,18 @@ Rocket 4.8.0 / WSL2(Debian 12.2) / Docker 24.0.7
 为了方便，使用 [rocketmq-docker](https://github.com/apache/rocketmq-docker) 以单机的方式部署,
 参考 [stage-a-specific-version](https://github.com/apache/rocketmq-docker?tab=readme-ov-file#b-stage-a-specific-version).
 
-1. 下载 rocket-docker
-      ```bash
-      $ git clone https://github.com/apache/rocketmq-docker.git
-      ```
-2. 生成指定版本的启动模板
+<details>
+   <summary>1. 下载 rocket-docker </summary>
+
+   ```bash
+   $ git clone https://github.com/apache/rocketmq-docker.git
+   ```
+
+</details>
+
+<details>
+   <summary>2. 生成指定版本的启动模板</summary>
+
    ```bash
    $ cd rocketmq-docker
    $ sh stage.sh 4.8.0
@@ -39,7 +46,12 @@ Rocket 4.8.0 / WSL2(Debian 12.2) / Docker 24.0.7
    data            kubernetes        play-docker-compose.sh  play-docker.sh      play-kubernetes.sh  ssl
    docker-compose  play-consumer.sh  play-docker-dledger.sh  play-docker-tls.sh  play-producer.sh
    ```
-3. 单机模式启动
+
+</details>
+
+<details>
+   <summary>3. 单机模式启动</summary>
+
    ```bash
    $ cd stages/4.8.0/templates/
    $ ./play-docker.sh centos
@@ -49,6 +61,7 @@ Rocket 4.8.0 / WSL2(Debian 12.2) / Docker 24.0.7
    445df298e4e5   apache/rocketmq:4.8.0   "sh mqnamesrv"           20 seconds ago   Up 19 seconds   10909/tcp, 0.0.0.0:9876->9876/tcp, :::9876->9876/tcp, 10911-10912/tcp   rmqnamesrv
    ```
    看起来运行正常对吧，但是存在一点问题，稍后再讲。
+</details>
 
 ### 安装 rocketmq-dashboard
 
@@ -71,7 +84,8 @@ org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [127
 
 需要将 `JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876` IP 改为 `rmqnamesrv` 容器的 IP。
 
-查看  `rmqnamesrv`容器 IP:
+<details>
+   <summary>查看  rmqnamesrv 容器 IP</summary>
 
 ```bash
 $ docker inspect rmqnamesrv | grep IPAddress
@@ -79,6 +93,8 @@ $ docker inspect rmqnamesrv | grep IPAddress
             "IPAddress": "172.17.0.2",
                     "IPAddress": "172.17.0.2",
 ```
+
+</details>
 
 可知 IP 为 `172.17.0.2`。 停止并删除原容器，重新启动。
 
@@ -98,33 +114,43 @@ Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: conn
 
 这个地址 `30.25.90.30:10909` 其实是 docker 启动 rocketmq 时自带的：
 
-```bash
-$ cat data/broker/conf/broker.conf
-brokerClusterName = DefaultCluster
-brokerName = broker-abc
-brokerId = 0
-deleteWhen = 04
-fileReservedTime = 48
-brokerRole = ASYNC_MASTER
-flushDiskType = ASYNC_FLUSH
-brokerIP1 = 30.25.90.30
-```
+<details>
+   <summary>broker.conf 修改前</summary>
+
+   ```bash
+   $ cat data/broker/conf/broker.conf
+   brokerClusterName = DefaultCluster
+   brokerName = broker-abc
+   brokerId = 0
+   deleteWhen = 04
+   fileReservedTime = 48
+   brokerRole = ASYNC_MASTER
+   flushDiskType = ASYNC_FLUSH
+   brokerIP1 = 30.25.90.30
+   ```
+
+</details>
 
 在 `broker.conf` 添加一行 `namesrvAddr = 172.17.0.2:9876`
 同时更换 `brokerIP1` 的地址(通过`docker inspect rmqbroker | grep IPAddress`命令获取)
 
-```bash
-$ cat data/broker/conf/broker.conf
-brokerClusterName = DefaultCluster
-brokerName = broker-abc
-brokerId = 0
-deleteWhen = 04
-fileReservedTime = 48
-brokerRole = ASYNC_MASTER
-flushDiskType = ASYNC_FLUSH
-namesrvAddr = 172.17.0.1:9876
-brokerIP1 = 172.17.0.3
-```
+<details>
+   <summary>broker.conf 修改后</summary>
+
+   ```bash
+   $ cat data/broker/conf/broker.conf
+   brokerClusterName = DefaultCluster
+   brokerName = broker-abc
+   brokerId = 0
+   deleteWhen = 04
+   fileReservedTime = 48
+   brokerRole = ASYNC_MASTER
+   flushDiskType = ASYNC_FLUSH
+   namesrvAddr = 172.17.0.1:9876
+   brokerIP1 = 172.17.0.3
+   ```
+
+</details>
 
 重启 rocketmq `./play-docker.sh centos`.
 
