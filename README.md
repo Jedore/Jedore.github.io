@@ -1,4 +1,4 @@
-[![Vercel Status](https://img.shields.io/github/deployments/Jedore/Jedore.github.io/Production?label=Vercel)](https://bk0.jedore.top)
+[![Vercel Status](https://img.shields.io/github/deployments/jedore/Jedore.github.io/Production?logo=Vercel&label=Vercel)](https://bk0.jedore.top)
 
 [![Render Status](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Frender-deploy-status-xwee.onrender.com%2Fsrv-cm2jll21hbls73fpc83g&query=%24.status&logo=Render&label=Render&color=brightgreen&cacheSeconds=86400)](https://bk1.jedore.top)
 
