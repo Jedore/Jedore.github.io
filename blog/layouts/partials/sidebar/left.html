@@ -80,35 +80,41 @@
             {{ with .Site.Home.AllTranslations }}
                 <ol class="social-menu">
                     <li>
-                        <a href="https://bk0.jedore.top/blog/" target="_blank" title="Backup 0">
-                            {{ $icon := "link-plus" }}
-                            {{ with $icon }}
+                        {{ $icon := "arrow-forward-up-double" }}
+                        {{ with $icon }}
                             {{ partial "helper/icon" . }}
-                            {{ end }}
-                        </a>
+                        {{ end }}
                     </li>
                     <li>
                         <a href="https://bk1.jedore.top/blog/" target="_blank" title="Backup 1">
-                            {{ $icon := "link-plus" }}
+                            {{ $icon := "number-1-small" }}
                             {{ with $icon }}
-                            {{ partial "helper/icon" . }}
+                                {{ partial "helper/icon" . }}
                             {{ end }}
                         </a>
                     </li>
                     <li>
                         <a href="https://bk2.jedore.top/blog/" target="_blank" title="Backup 2">
-                            {{ $icon := "link-plus" }}
+                            {{ $icon := "number-2-small" }}
                             {{ with $icon }}
-                            {{ partial "helper/icon" . }}
+                                {{ partial "helper/icon" . }}
                             {{ end }}
                         </a>
                     </li>
                     <li>
                         <a href="https://bk3.jedore.top/blog/" target="_blank" title="Backup 3">
-                        {{ $icon := "link-plus" }}
-                        {{ with $icon }}
-                            {{ partial "helper/icon" . }}
-                        {{ end }}
+                            {{ $icon := "number-3-small" }}
+                            {{ with $icon }}
+                                {{ partial "helper/icon" . }}
+                            {{ end }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bk4.jedore.top/blog/" target="_blank" title="Backup 4">
+                            {{ $icon := "number-4-small" }}
+                            {{ with $icon }}
+                                {{ partial "helper/icon" . }}
+                            {{ end }}
                         </a>
                     </li>
                 </ol>

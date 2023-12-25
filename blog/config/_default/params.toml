@@ -27,8 +27,8 @@ toc = true
 readingTime = true
 
 [article.license]
-enabled = false
-default = "Licensed under CC BY-NC-SA 4.0"
+enabled = true
+default = "Licensed under CC BY-NC-ND 4.0 "
 
 ## Widgets
 [[widgets.homepage]]

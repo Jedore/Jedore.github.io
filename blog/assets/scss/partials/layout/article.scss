@@ -53,10 +53,11 @@
 
             section {
                 color: var(--card-text-color-tertiary);
-                text-transform: uppercase;
-                display: flex;
+                // text-transform: uppercase;
+                // display: flex;
                 align-items: center;
                 font-size: 1.4rem;
+                font-style: italic;
                 gap: 15px;
 
                 svg {
