@@ -5,6 +5,7 @@ title = '借刀破圈'
 enableEmoji = true
 enableGitInfo = true
 defaultContentLanguage = 'zh-cn'
+copyright = "Jedore AllRightsReserved."
 
 [languages]
 [languages.zh-cn]
