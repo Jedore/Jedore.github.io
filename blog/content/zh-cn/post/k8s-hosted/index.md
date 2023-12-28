@@ -16,14 +16,14 @@ style:
 keywords:
 ---
 
-#### 环境
+### 环境
 
 - Mac Pro - 10.15.6
 
 - 虚拟机 VBox - 6.1.18
 - [CentOS 7](http://mirrors.huaweicloud.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso)
 
-#### 创建虚拟机
+### 创建虚拟机
 
 3个 master 节点, 2Cpu/2G内存/8G存储
 
@@ -37,7 +37,7 @@ $ yum -y update
 
 安装必备软件/docker/k8s软件后，再克隆出其他虚拟机
 
-#### 安装必备软件包
+### 安装必备软件包
 
 所有节点
 
@@ -45,7 +45,7 @@ $ yum -y update
 $ yum -y install wget net-tools nfs-utils lrzsz gcc gcc-c++ make cmake libxml2-devel openssl-devel curl curl-devel unzip sudo ntp libaio-devel wget vim ncurses-devel autoconf automake zlib-devel  python-devel epel-release lrzsz  openssh-server socat  ipvsadm conntrack bind-utils epel-release libffi-devel libaio-devel libxml2-devel cmake python-devel device-mapper-persistent-data lvm2 yum-utils ntpdate
 ```
 
-#### 安装 docker-ce
+### 安装 docker-ce
 
 所有节点，配置加速器，开机启动
 
@@ -96,7 +96,7 @@ EOF
 systemctl daemon-reload && systemctl restart docker
 ```
 
-#### 安装 K8S 软件包
+### 安装 K8S 软件包
 
 所有节点
 
@@ -117,11 +117,11 @@ yum makecache fast
 yum install -y kubeadm-1.20.4 kubelet-1.20.4 kubectl-1.20.4
 ```
 
-#### 本地化 docker 仓库
+### 本地化 docker 仓库
 
 若有需要，可以在某个节点服务器搭建一个本地 docker 仓库，或者集群外的服务器搭建仓库也可
 
-#### 初始化系统环境
+### 初始化系统环境
 
 1. 编辑 `node_ips.sh`中 master/worker 节点 IP, 虚拟IP
 2. 添加主 master 节点的公钥到其他节点
@@ -141,7 +141,7 @@ yum install -y kubeadm-1.20.4 kubelet-1.20.4 kubectl-1.20.4
 ./init.sh
 ```
 
-#### 多master高可用
+### 多master高可用
 
 master 节点个数须为奇数,若多于1个，则执行此操作
 
@@ -156,7 +156,7 @@ $ ./init_keepalived.sh
 
 查看 keepalived 服务正常、虚拟IP绑定到指定网卡，即成功
 
-#### 主master 节点初始化控制面板
+### 主master 节点初始化控制面板
 
 编辑 `kubeadm-config.yaml`中虚拟IP及所有主节点IP
 
@@ -221,7 +221,7 @@ kubeadm join 192.168.31.253:6443 --token eqynnt.y6twqsdyv1s9ij4n \
 
 > 可直接执行 `init_master.sh`
 
-#### 部署 CNI网络
+### 部署 CNI网络
 
 - flannel
 
@@ -233,7 +233,7 @@ kubeadm join 192.168.31.253:6443 --token eqynnt.y6twqsdyv1s9ij4n \
 
   安装完稍等一会，`kubectl get nodes` 显示为 `Ready` 状态
 
-#### 从master 节点加入集群
+### 从 master 节点加入集群
 
 将另外的 master 节点加入集群，先拷贝证书，再加入集群
 
@@ -245,7 +245,7 @@ $ ./add_master.sh
 
 `kubectl get nodes` 查看结果
 
-#### worker 节点加入集群
+### worker 节点加入集群
 
 root 用户执行
 
@@ -279,7 +279,7 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
 
 
-#### 重置 kubeadm
+### 重置 kubeadm
 
 若出错需要重置 master 的  `kubeadm init` or  worker 的`kubeadm join`
 
@@ -296,7 +296,7 @@ rm -rf /var/lib/cni
 rm -rf /etc/cni/net.d
 ```
 
-#### 创建访问权限及 token
+### 创建访问权限及 token
 
 [creating-sample-user](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
@@ -310,7 +310,7 @@ $ kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard g
 
 
 
-#### Dashboard UI
+### Dashboard UI
 
 [Ref](https://kubernetes.io/zh/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
@@ -386,7 +386,7 @@ kubectl proxy --address='0.0.0.0'  --accept-hosts='^*$'
    
    
 
-#### 常用命令
+### 常用命令
 
 ```bash
 # 查看 kubelet 日志
@@ -397,7 +397,7 @@ kubectl delete nodes <node_hostname>
 
 
 
-#### FQA
+### FQA
 
 - Unable to read config path "/etc/kubernetes/manifests": path does not exist, ignoring
 
@@ -449,6 +449,6 @@ kubectl delete nodes <node_hostname>
 
   在 初始化 master 节点之前 `kubeadm init`, kubelet 服务会不断重启
 
-#### 参考
+### 参考
 
 [centos7安装kubernetes k8s 1.18](https://www.cnblogs.com/faberbeta/p/13961125.html)
