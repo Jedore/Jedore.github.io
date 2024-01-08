@@ -218,26 +218,26 @@ keywords:
   }
 
   %typemap(in) char *[] {
-  /* Check if is a list */
-  if (PyList_Check($input)) {
-  int size = PyList_Size($input);
-  int i = 0;
-  $1 = (char **) malloc((size+1)*sizeof(char *));
-  for (i = 0; i < size; i++) {
-  PyObject *o = PyList_GetItem($input, i);
-  if (PyString_Check(o)) {
-  $1[i] = PyString_AsString(PyList_GetItem($input, i));
-  } else {
-  free($1);
-  PyErr_SetString(PyExc_TypeError, "list must contain strings");
-  SWIG_fail;
-  }
-  }
-  $1[i] = 0;
-  } else {
-  PyErr_SetString(PyExc_TypeError, "not a list");
-  SWIG_fail;
-  }
+      /* Check if is a list */
+      if (PyList_Check($input)) {
+          int size = PyList_Size($input);
+          int i = 0;
+          $1 = (char **) malloc((size+1)*sizeof(char *));
+          for (i = 0; i < size; i++) {
+              PyObject *o = PyList_GetItem($input, i);
+              if (PyString_Check(o)) {
+                  $1[i] = PyString_AsString(PyList_GetItem($input, i));
+              } else {
+                  free($1);
+                  PyErr_SetString(PyExc_TypeError, "list must contain strings");
+                  SWIG_fail;
+              }
+          }
+          $1[i] = 0;
+          } else {
+              PyErr_SetString(PyExc_TypeError, "not a list");
+              SWIG_fail;
+      }
   }
 
   // This cleans up the char ** array we malloc'd before the function call
@@ -734,5 +734,10 @@ d-----        08/01/2024     10:46                _thosttraderapi
 同时，以上工程已上传至 [https://github.com/openctp/ctpapi2python-swig-VisualStudio](https://github.com/openctp/ctpapi2python-swig-VisualStudio), 可下载参考。
 
 ### Linux
+待续...
 
 ### MacOS
+待续...
+
+
+> 注：swig 转换逻辑参考 [景色大佬的文章](https://blog.csdn.net/pjjing/article/details/77338423)
