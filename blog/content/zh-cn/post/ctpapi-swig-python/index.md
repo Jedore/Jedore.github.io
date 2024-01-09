@@ -449,6 +449,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
     demo_td.py
     iconv.dll
     charset.dll
+    msvcp140.dll
     thosttraderapi_se.dll
     _thosttraderapi.pyd
     thosttraderapi.py
@@ -599,6 +600,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
     demo_md.py
     iconv.dll
     charset.dll
+    msvcp140.dll
     thostmduserapi_se.dll
     _thostmduserapi.pyd
     thosttmduserapi.py
