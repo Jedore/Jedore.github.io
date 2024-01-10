@@ -9,13 +9,14 @@ hidden: false
 comments: false
 draft: false
 tags:
-  - swig
-  - ctp
-  - ctpapi
+    - swig
+    - ctp
+    - ctpapi
 categories:
-  - CTP
+    - CTP
 style:
 keywords:
+
 ---
 
 ### Windows
@@ -444,7 +445,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 
 1. 交易接口
 
-    测试需要用到文件: 
+   测试需要用到文件:
     ```text 
     demo_td.py
     iconv.dll
@@ -733,12 +734,256 @@ d-----        08/01/2024     10:46                _thosttraderapi
 以上就是使用 VisualStudio 2022 IDE 通过 swig 将 CTPAPI，装换为 python 的整个流程了。如果是使用其他版本的 VisualStudio 或
 构建目标为 win32 平台，逻辑是一样的，只要参照以上，同时将相应库改为win32的即可。
 
-同时，以上工程已上传至 [https://github.com/openctp/ctpapi2python-swig-VisualStudio](https://github.com/openctp/ctpapi2python-swig-VisualStudio), 可下载参考。
+同时，以上工程已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/vs2022),
+可下载参考。
 
 ### Linux
-待续...
+
+#### 参考环境
+
+- Debian 12.4
+- g++ 12.2.0
+- swig 4.1.0
+- ctpapi 6.7.2
+
+#### 下载解压
+
+下载地址 http://121.37.80.177:50080/Download/CTPAPI/CTP/ctp_6.7.2.zip  
+解压后得到 linux64 的头文件、库文件，如下:
+
+```bash
+$ ls
+thostmduserapi_se.so  ThostFtdcMdApi.h      ThostFtdcUserApiDataType.h  
+thosttraderapi_se.so  ThostFtdcTraderApi.h  ThostFtdcUserApiStruct.h    
+```
+
+将 so 文件重命名为 libthostmduserapi_se.so / libthosttraderapi_se.so
+
+#### 添加 .i文件
+
+添加 thostmduserapi.i / thosttraderapi.i 文件:
+<details>
+<summary>thosttraderapi.i</summary>
+
+```text
+%module(directors="1") thosttraderapi
+%{
+#include "ThostFtdcTraderApi.h"
+#include <codecvt>
+#include <locale>
+#include <vector>
+#include <string>
+using namespace std;
+#ifdef _MSC_VER
+const static locale g_loc("zh-CN");
+#else
+const static locale g_loc("zh_CN.GB18030");
+#endif %}
+%typemap(out) char[ANY], char[] {
+    const std::string &gbk($1);
+    std::vector<wchar_t> wstr(gbk.size());
+    wchar_t* wstrEnd = nullptr;
+    const char* gbEnd = nullptr;
+    mbstate_t state = {};
+    int res = use_facet<codecvt<wchar_t, char, mbstate_t>> (g_loc).in(state, gbk.data(), gbk.data() + gbk.size(), gbEnd, wstr.data(), wstr.data() + wstr.size(), wstrEnd);
+    if (codecvt_base::ok == res) {
+        wstring_convert<codecvt_utf8<wchar_t>> cutf8;
+        std::string result = cutf8.to_bytes(wstring(wstr.data(), wstrEnd));
+        resultobj = SWIG_FromCharPtrAndSize(result.c_str(), result.size());
+    } else {
+        std::string result;
+        resultobj = SWIG_FromCharPtrAndSize(result.c_str(), result.size());
+    }
+}
+%feature("python:annotations", "c");
+%feature("director") CThostFtdcTraderSpi;
+%ignore THOST_FTDC_VTC_BankBankToFuture;
+%ignore THOST_FTDC_VTC_BankFutureToBank;
+%ignore THOST_FTDC_VTC_FutureBankToFuture;
+%ignore THOST_FTDC_VTC_FutureFutureToBank;
+%ignore THOST_FTDC_FTC_BankLaunchBankToBroker;
+%ignore THOST_FTDC_FTC_BrokerLaunchBankToBroker;
+%ignore THOST_FTDC_FTC_BankLaunchBrokerToBank;
+%ignore THOST_FTDC_FTC_BrokerLaunchBrokerToBank;
+
+%include "ThostFtdcUserApiDataType.h"
+%include "ThostFtdcUserApiStruCT.H"
+%INCLUDE "THOSTFTDCTRADERAPI.H"
+```
+</details>
+
+
+<details>
+<summary>thostmduserapi.i</summary>
+
+```text
+%module(directors="1") thostmduserapi
+%{
+#include "ThostFtdcMdApi.h"
+#include <codecvt>
+#include <locale>
+#include <vector>
+#include <string>
+using namespace std;
+#ifdef _MSC_VER
+const static locale g_loc("zh-CN");
+#else    
+const static locale g_loc("zh_CN.GB18030");
+#endif
+%}
+
+%feature("python:annotations", "c");
+%feature("director") CThostFtdcMdSpi;
+
+%typemap(out) char[ANY], char[] {
+    const std::string &gbk($1);
+    std::vector<wchar_t> wstr(gbk.size());
+    wchar_t* wstrEnd = nullptr;
+    const char* gbEnd = nullptr;
+    mbstate_t state = {};
+    int res = use_facet<codecvt<wchar_t, char, mbstate_t>>
+        (g_loc).in(state,
+            gbk.data(), gbk.data() + gbk.size(), gbEnd,
+            wstr.data(), wstr.data() + wstr.size(), wstrEnd);
+ 
+    if (codecvt_base::ok == res)
+    {
+        wstring_convert<codecvt_utf8<wchar_t>> cutf8;
+        std::string result = cutf8.to_bytes(wstring(wstr.data(), wstrEnd));       
+        resultobj = SWIG_FromCharPtrAndSize(result.c_str(), result.size()); 
+    }
+    else
+    {
+        std::string result;
+        resultobj = SWIG_FromCharPtrAndSize(result.c_str(), result.size()); 
+    }
+}
+%typemap(in) char *[] {
+  /* Check if is a list */
+  if (PyList_Check($input)) {
+    int size = PyList_Size($input);
+    int i = 0;
+    $1 = (char **) malloc((size+1)*sizeof(char *));
+    for (i = 0; i < size; i++) {
+      PyObject *o = PyList_GetItem($input, i);
+      if (PyString_Check(o)) {
+        $1[i] = PyString_AsString(PyList_GetItem($input, i));
+      } else {
+        free($1);
+        PyErr_SetString(PyExc_TypeError, "list must contain strings");
+        SWIG_fail;
+      }
+    }
+    $1[i] = 0;
+  } else {
+    PyErr_SetString(PyExc_TypeError, "not a list");
+    SWIG_fail;
+  }
+}
+
+// This cleans up the char ** array we malloc'd before the function call
+%typemap(freearg) char ** {
+  free((char *) $1);
+}
+
+%ignore THOST_FTDC_VTC_BankBankToFuture;
+%ignore THOST_FTDC_VTC_BankFutureToBank;
+%ignore THOST_FTDC_VTC_FutureBankToFuture;
+%ignore THOST_FTDC_VTC_FutureFutureToBank;
+%ignore THOST_FTDC_FTC_BankLaunchBankToBroker;
+%ignore THOST_FTDC_FTC_BrokerLaunchBankToBroker;
+%ignore THOST_FTDC_FTC_BankLaunchBrokerToBank;
+%ignore THOST_FTDC_FTC_BrokerLaunchBrokerToBank;
+
+%include "ThostFtdcUserApiDataType.h"
+%include "ThostFtdcUserApiStruct.h"
+%include "ThostFtdcMdApi.h"
+```
+</details>
+
+文件如下:
+```bash
+$ ls
+libthostmduserapi_se.so  ThostFtdcMdApi.h      ThostFtdcUserApiDataType.h  thostmduserapi.i
+libthosttraderapi_se.so  ThostFtdcTraderApi.h  ThostFtdcUserApiStruct.h    thosttraderapi.i
+```
+
+#### swig根据 .i 文件生成 python接口文件和wrap文件
+
+```bash
+swig -threads -c++ -python thostmduserapi.i
+swig -threads -c++ -python thosttraderapi.i
+```
+
+生成如下文件:
+```text
+thosttraderapi.py
+thostmduserapi.py
+thosttraderapi_wrap.h
+thosttraderapi_wrap.cxx
+thostmduserapi_wrap.h
+thostmduserapi_wrap.cxx
+```
+
+#### 构建编译
+
+先创建 makefile 文件  
+<details>
+<summary>makefile_traderapi</summary>
+
+```text
+OBJS=thosttraderapi_wrap.o
+INCLUDE=-I./ -I/root/.pyenv/versions/3.7.17/include/python3.7m/
+TARGET=_thosttraderapi.so
+CPPFLAG=-shared -fPIC
+CC=g++
+LDLIB=-L. -lthosttraderapi_se
+$(TARGET) : $(OBJS)
+        $(CC) $(CPPFLAG) -Wl,-enable-new-dtags,-rpath,./ $(INCLUDE) -o $(TARGET) $(OBJS) $(LDLIB)
+$(OBJS) : %.o : %.cxx
+        $(CC) -c -fPIC $(INCLUDE) $< -o $@
+clean:
+        rm -f $(OBJS)
+        -rm -f $(TARGET)
+```
+</details>  
+
+<details>
+<summary>makefile_mduserapi</summary>
+
+```text
+OBJS=thostmduserapi_wrap.o
+INCLUDE=-I./ -I/root/.pyenv/versions/3.7.17/include/python3.7m/
+TARGET=_thostmduserapi.so
+CPPFLAG=-shared -fPIC
+CC=g++
+LDLIB=-L. -lthostmduserapi_se
+$(TARGET) : $(OBJS)
+        $(CC) $(CPPFLAG) -Wl,-enable-new-dtags,-rpath,./ $(INCLUDE) -o $(TARGET) $(OBJS) $(LDLIB)
+$(OBJS) : %.o : %.cxx
+        $(CC) -c -fPIC $(INCLUDE) $< -o $@
+clean:
+        -rm -f $(OBJS)
+        -rm -f $(TARGET)
+```
+</details>  
+
+**注意makefile文件中的python包含路径`/root/.pyenv/versions/3.7.17/include/python3.7m/`要换成自己的**
+
+执行编译命令:
+```bash 
+make --file=makefile_traderapi
+make --file=makefile_mduserapi
+```
+会得到两个动态库: _thosttraderapi.so / _thostmduserapi.so
+
+#### 测试
+参考windows中的测试文件和命令
+
+相关文件已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/linux),
 
 ### MacOS
+
 待续...
 
 
