@@ -9,8 +9,7 @@ hidden: false
 comments: false
 draft: false
 tags:
-  - openctp-tts
-  - tts
+  - openctp
 categories:
   - CTP
   - OPENCTP

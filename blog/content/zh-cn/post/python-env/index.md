@@ -11,7 +11,6 @@ draft: false
 tags:
   - pip
   - pyenv
-  - pyenv-win
   - virtualenv
 categories:
   - Python
