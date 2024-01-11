@@ -3,7 +3,7 @@ title: "Swig转换CTPAPI为Python攻略"
 description: 手把手介绍了使用 swig 将 CTPAPI 从 C++ 转换为 Python 的详细过程
 date: 2023-12-25T00:14:26+08:00
 math: false
-image:
+image: openctp-ctp.png
 license:
 hidden: false
 comments: false
@@ -19,7 +19,12 @@ keywords:
 
 ---
 
-### Windows
+C++ CTPAPI 是上期技术提供一个交易接口，用于连接柜台进行交易。由于 C++ 本身的难度以及不便于进行一般性测试，得益于热心网友努力，出现了Python版本的 CTPAPI。  
+
+这里参考 景色 的文章，对这一流程在不同平台进行了整理，同时已将转换过程涉及到的文件上传至 github 仓库 https://github.com/openctp/ctpapi2python-swig-compile 。 同时也提供了也提供了更完善友好的 python [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 库以对接 CTPAPI 柜台, 欢迎使用。
+
+
+### Windows 平台转换
 
 #### 环境准备
 
@@ -737,7 +742,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 同时，以上工程已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/vs2022),
 可下载参考。
 
-### Linux
+### Linux 平台转换
 
 #### 参考环境
 
@@ -982,7 +987,7 @@ make --file=makefile_mduserapi
 
 相关文件已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/linux),
 
-### MacOS
+### MacOS 平台转换
 
 待续...
 
