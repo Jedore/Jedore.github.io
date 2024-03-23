@@ -3,7 +3,7 @@ title: "Swig转换CTPAPI为Python攻略"
 description: 手把手介绍了使用 swig 将 CTPAPI 从 C++ 转换为 Python 的详细过程
 date: 2023-12-25T00:14:26+08:00
 math: false
-image: openctp-ctp.png
+image: 
 license:
 hidden: false
 comments: false
@@ -21,7 +21,7 @@ keywords:
 
 C++ CTPAPI 是上期技术提供一个交易接口，用于连接柜台进行交易。由于 C++ 本身的难度以及不便于进行一般性测试，得益于热心网友努力，出现了Python版本的 CTPAPI。  
 
-这里参考 景色 的文章，对这一流程在不同平台进行了整理，同时已将转换过程涉及到的文件上传至 github 仓库 https://github.com/openctp/ctpapi2python-swig-compile 。 同时也提供了也提供了更完善友好的 python [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 库以对接 CTPAPI 柜台, 欢迎使用。
+这里参考 景色 的文章，对这一流程在不同平台进行了整理，同时已将转换过程涉及到的额外文件上传至 [github仓库](https://github.com/Jedore/ctpapi2python-swig-files) 。 同时也提供了也提供了更完善友好的 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 库以对接 CTPAPI 柜台, 欢迎使用。
 
 
 ### Windows 平台转换
@@ -62,16 +62,12 @@ C++ CTPAPI 是上期技术提供一个交易接口，用于连接柜台进行交
   下载[上期技术官方](http://www.sfit.com.cn)的CTPAPI
     - 从上期技术官网下载
 
-      下载页面 http://www.sfit.com.cn/5_2_DocumentDown_2_2.htm
-
-      下载链接 http://www.sfit.com.cn/DocumentDown/api_3/5_2_2/v6.7.0_traderapi_20230209.zip
+      [下载页面](http://www.sfit.com.cn/5_2_DocumentDown_2_2.htm)
+      [下载链接](http://www.sfit.com.cn/DocumentDown/api_3/5_2_2/v6.7.0_traderapi_20230209.zip)
 
     - 从 [openctp](https://github.com/openctp) 下载
 
-      由于上期技术官网不稳定，非交期时间段基本不提供服务
-
-      下载页面 http://121.37.80.177:50080/Download.html
-      下载链接 http://121.37.80.177:50080/Download/CTPAPI/CTP/ctp_6.7.0.zip
+      由于上期技术官网不稳定，非交易时间段基本不提供服务, 可以从 https://gitee.com/jedore/ctp-resources [下载](https://gitee.com/jedore/ctp-resources/raw/master/6.7.0/v6.7.0_traderapi_20230209.zip)
 
 - python 3.10
 
@@ -305,7 +301,7 @@ Mode                 LastWriteTime         Length Name
 d-----        08/01/2024     14:30                _thostmduserapi
 d-----        08/01/2024     10:46                _thosttraderapi
 -a----        08/01/2024     10:34           9511 iconv.h
--a----        08/01/2024     10:34        1094144 libiconv.dll
+-a----        08/01/2024     10:34        1094144 iconv.dll
 -a----        09/02/2023     10:02           5906 ThostFtdcMdApi.h
 -a----        09/02/2023     10:00          41046 ThostFtdcTraderApi.h
 -a----        09/02/2023     10:02         267340 ThostFtdcUserApiDataType.h
@@ -352,7 +348,7 @@ Mode                 LastWriteTime         Length Name
 d-----        08/01/2024     14:30                _thostmduserapi
 d-----        08/01/2024     10:46                _thosttraderapi
 -a----        08/01/2024     10:34           9511 iconv.h
--a----        08/01/2024     10:34        1094144 libiconv.dll
+-a----        08/01/2024     10:34        1094144 iconv.dll
 -a----        09/02/2023     10:02           5906 ThostFtdcMdApi.h
 -a----        09/02/2023     10:00          41046 ThostFtdcTraderApi.h
 -a----        09/02/2023     10:02         267340 ThostFtdcUserApiDataType.h
@@ -739,8 +735,6 @@ d-----        08/01/2024     10:46                _thosttraderapi
 以上就是使用 VisualStudio 2022 IDE 通过 swig 将 CTPAPI，装换为 python 的整个流程了。如果是使用其他版本的 VisualStudio 或
 构建目标为 win32 平台，逻辑是一样的，只要参照以上，同时将相应库改为win32的即可。
 
-同时，以上工程已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/vs2022),
-可下载参考。
 
 ### Linux 平台转换
 
@@ -753,8 +747,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 
 #### 下载解压
 
-下载地址 http://121.37.80.177:50080/Download/CTPAPI/CTP/ctp_6.7.2.zip  
-解压后得到 linux64 的头文件、库文件，如下:
+[下载地址](https://gitee.com/jedore/ctp-resources/raw/master/6.7.0/v6.7.0_traderapi_20230209.zip) 解压后得到 linux64 的头文件、库文件，如下:
 
 ```bash
 $ ls
@@ -985,11 +978,9 @@ make --file=makefile_mduserapi
 #### 测试
 参考windows中的测试文件和命令
 
-相关文件已上传至 [openctp/ctpapi2python-swig-compile](https://github.com/openctp/ctpapi2python-swig-compile/tree/main/linux),
-
 ### MacOS 平台转换
 
 待续...
 
 
-> 注：swig 转换逻辑参考 [景色大佬的文章](https://blog.csdn.net/pjjing/article/details/77338423)
+> 注：swig 转换逻辑参考 [景色的文章](https://blog.csdn.net/pjjing/article/details/77338423)
