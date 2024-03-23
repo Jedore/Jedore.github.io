@@ -21,7 +21,7 @@ keywords:
 
 C++ CTPAPI 是上期技术提供一个交易接口，用于连接柜台进行交易。由于 C++ 本身的难度以及不便于进行一般性测试，得益于热心网友努力，出现了Python版本的 CTPAPI。  
 
-这里参考 景色 的文章，对这一流程在不同平台进行了整理，同时已将转换过程涉及到的额外文件上传至 [github仓库](https://github.com/Jedore/ctpapi2python-swig-files) 。 同时也提供了也提供了更完善友好的 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 库以对接 CTPAPI 柜台, 欢迎使用。
+这里参考 景色 的文章，对这一流程在不同平台进行了整理，同时已将转换过程涉及到的额外文件上传至 [github仓库](https://github.com/Jedore/ctpapi2python-swig-files)和[gitee仓库](https://gitee.com/jedore/ctpapi2python-swig-files)。 同时也提供了也提供了更完善友好的 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 库以对接 CTPAPI 柜台, 欢迎使用。
 
 
 ### Windows 平台转换
