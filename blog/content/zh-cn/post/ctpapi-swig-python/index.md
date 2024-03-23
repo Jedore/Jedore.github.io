@@ -442,7 +442,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 
 #### 测试交易、行情接口
 
-交易接口、行情接口 前置地址，参考 [openctp监控](http://121.37.80.177:50080/detail.html) SimNow
+交易接口、行情接口 前置地址，参考 [openctp监控](http://openctp.cn) SimNow
 
 1. 交易接口
 
@@ -466,7 +466,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 
     import thosttraderapi as tdapi
 
-    # 前置地址 参考 http://121.37.80.177:50080/detail.html  SimNow
+    # 前置地址 参考 http://openctp.cn  SimNow
     FrontAddr = ""
 
     # 登录信息 需要在 SimNow https://www.simnow.com.cn/ 平台注册账号
@@ -624,7 +624,7 @@ d-----        08/01/2024     10:46                _thosttraderapi
 
     import thostmduserapi as mdapi
 
-    # 前置地址 参考 http://121.37.80.177:50080/detail.html  SimNow
+    # 前置地址 参考 http://openctp.cn  SimNow
     FrontAddr = ""
     # 注意选择有效合约, 没有行情可能是过期合约或者不在交易时间内的原因
     # instruments = ["AP410"]
