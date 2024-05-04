@@ -33,7 +33,7 @@ https://www.kylinos.cn/support/trial.html
 ![img00](img00.png)
 按照提示下载即可， 我这里下载到的是 Kylin-Desktop-V10-SP1-HWE-Release-2303-X86_64.iso
 
-下载后验证一个文件sha256码是否正确, PowerShell 下命令是 `Get-FileHash <file>`
+下载后验证文件sha256码是否正确, PowerShell 下命令是 `Get-FileHash <file>`
 
 ### 创建配置虚拟机
 
@@ -80,7 +80,7 @@ Video Memory 选择64M
 ![img8](img8.png)
 ![img9](img9.png)
 
-#### 安装银河麒麟操作系统
+#### 启动
 
 使用上下箭头选择 安装银河麒麟操作系统, 回车执行
 
