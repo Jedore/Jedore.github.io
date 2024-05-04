@@ -131,3 +131,8 @@ cd /media/jedore/VBox_GAs_7.0.12
 ![img19](img19.png)
 再缩放虚拟机窗口时，分辨率便跟随改变，如下图
 ![img20](img20.png)
+
+> 更多资料参考
+> - [银河麒麟桌面操作系统 V10 产品安装手册](https://gongce.kylinos.cn/static/qilin/res/230803/7e598558100fb09bc1f318d72f0ac65d.pdf)
+> - [银河麒麟桌面操作系统V10 常见问题](https://gongce.kylinos.cn/static/img/2024/01/fc4860644d1df11db1f8290b2cd4c2be.pdf)
+> - [银河麒麟桌面操作系统V10 产品用户手册](https://gongce.kylinos.cn/static/qilin/res/230803/65653dd8789caf68970e1753fefeafa3.pdf)
