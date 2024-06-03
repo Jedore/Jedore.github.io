@@ -213,6 +213,8 @@ Content: 377
 
 可以看到，相比上面的结算单信息，在开头多出了资金状况的信息，并且也看到了 “权市值” 字符串, 其实是 “起权市值”， 以及完整的表单信息, 看上去顺眼多了。
 
+友情提示，需要安装最新版CTPAPI版本对应openctp-ctp最新版
+
 测试环境：SimNow 7x24
 
 测试源码地址: https://github.com/Jedore/ctp.examples/blob/main/openctp-ctp/ReqQrySettlementInfo.py 
