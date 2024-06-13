@@ -47,10 +47,11 @@ def parse_page(url: str, title: str = 'Index of /Python/',
 
 def gen_html(filename: str, title: str, contents: list):
     headers = [
-        '<html><head><title>Jedore</title></head><body>',
+        '<html><head><title>Python Mirrors</title></head><body>',
         f'<h1>{title}</h1>',
-        '<h4>From: <a href="https://github.com/Jedore" target="_black">Jedore</a></h4>',
+        '<h4>Author: <a href="https://github.com/Jedore" target="_black">Jedore</a></h4>',
         '<hr><pre>',
+        '<a href="/">/</a>\n',
         '<a href="../">../</a>',
     ]
     tails = [
