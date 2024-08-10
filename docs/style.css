@@ -1029,7 +1029,7 @@ svg {
 }
 
 .from-slate-900 {
-    --tw-gradient-from: #8a9799 var(--tw-gradient-from-position);
+    --tw-gradient-from: #1e293b var(--tw-gradient-from-position);
     --tw-gradient-to: rgb(15 23 42 / 0) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
 }
