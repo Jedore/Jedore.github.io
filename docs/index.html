@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JedoreHome</title>
+  <link rel="shortcut icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -52,9 +53,9 @@
           border-color: rgba(37, 99, 235, 0.3) !important;
       }
 
-      .group:hover .group-hover\:block {
-          display: block;
-      }
+      /*.group:hover .group-hover\:block {*/
+      /*    display: block;*/
+      /*}*/
   </style>
 </head>
 <body class="bg-white font-['Helvetica']">
@@ -63,8 +64,7 @@
     <div class="flex items-center justify-between">
       <div class="flex items-center">
         <div class="w-32 h-10">
-          <img src="assets/logo.jpg" alt="logo"
-               class="w-full h-full object-contain">
+          <img src="assets/logo.jpg" alt="logo" loading="lazy" class="w-full h-full object-contain">
         </div>
       </div>
       <nav class="hidden md:flex items-center space-x-8 relative">
@@ -75,7 +75,7 @@
           <div
               class="hidden group-hover:block absolute z-50 -left-20 mt-2 p-2 bg-white rounded-lg shadow-lg border border-gray-200">
             <img src="https://ai-public.mastergo.com/ai/img_res/6c11356ecb2a076057163db7af57a71e.jpg" alt="微信二维码"
-                 class="w-[150px] h-[150px]">
+                 loading="lazy" class="w-[150px] h-[150px]">
             <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">扫码关注公众号</p>
           </div>
         </div>
@@ -83,7 +83,7 @@
            title="Github">
           <i class="fab fa-github"></i>
         </a>
-        <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="邮件">
+        <a href="mailto:jedore@qq.com" class="text-gray-600 hover:text-primary text-3xl" title="邮件">
           <i class="far fa-envelope"></i>
         </a>
       </nav>
@@ -94,7 +94,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/0201b32e2dbb8ec13b0b9c176ddc6365.jpg"
+        <img src="https://ai-public.mastergo.com/ai/img_res/0201b32e2dbb8ec13b0b9c176ddc6365.jpg" loading="lazy"
              class="w-full h-full object-cover" alt="博客">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">小小文章</h2>
@@ -107,7 +107,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/2818d3f8b30486cd338b12df79c3774d.jpg"
+        <img src="https://ai-public.mastergo.com/ai/img_res/2818d3f8b30486cd338b12df79c3774d.jpg" loading="lazy"
              class="w-full h-full object-cover" alt="Python镜像">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">Python国内镜像源</h2>
@@ -120,7 +120,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/6f56ea27b8e1c0595442a7df4d8b8679.jpg"
+        <img src="https://ai-public.mastergo.com/ai/img_res/6f56ea27b8e1c0595442a7df4d8b8679.jpg" loading="lazy"
              class="w-full h-full object-cover" alt="开发项目">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
@@ -132,7 +132,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/cbea73296fc493fb81eb8c639767f59d.jpg"
+        <img src="https://ai-public.mastergo.com/ai/img_res/cbea73296fc493fb81eb8c639767f59d.jpg" loading="lazy"
              class="w-full h-full object-cover" alt="CTP文档">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTP Docs</h2>
@@ -145,7 +145,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/9b6e5c33a2585adb679a0339ae8718b6.jpg"
+        <img src="https://ai-public.mastergo.com/ai/img_res/9b6e5c33a2585adb679a0339ae8718b6.jpg" loading="lazy"
              class="w-full h-full object-cover" alt="CTPAPI">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTPAPI</h2>
@@ -161,9 +161,12 @@
 <footer class="bg-gray-50 text-gray-800 py-6 mt-12 border-t">
   <div class="max-w-3xl mx-auto px-4">
     <div class="text-center text-gray-500">
-      <p>&copy; 2025 Jedore. All Rights Reserved.</p>
+      <p>&copy; <span id="year"></span> Jedore. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
 </body>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </html>
