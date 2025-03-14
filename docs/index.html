@@ -1,46 +1,169 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title> Jedore </title>
-    <link rel="shortcut icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JedoreHome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1a1a1a'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '2px',
+            DEFAULT: '4px',
+            'md': '8px',
+            'lg': '12px',
+            'xl': '16px',
+            '2xl': '20px',
+            '3xl': '24px',
+            'full': '9999px',
+            'button': '4px'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+      body {
+          min-height: 1024px;
+          background-color: #ffffff;
+      }
+
+      .card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          background: #ffffff !important;
+          border: 1px solid #e5e7eb !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+          border-color: rgba(37, 99, 235, 0.3) !important;
+      }
+
+      .group:hover .group-hover\:block {
+          display: block;
+      }
+  </style>
 </head>
-
-<body class="bg-gradient-to-r from-slate-900 to-slate-800 font-mono text-white">
-<div class="container mx-auto flex flex-col px-4 xl:w-8/12 sm:max-w-full">
-    <header class="flex flex-row py-4"></header>
-    <div class="flex flex-col pt-8 gap-10 w-full">
-        <div class="flex flex-col w-full gap-4">
-            <div class="flex flex-col gap-4 w-full">
-                <div class="prose prose-invert max-w-full">
-                    <h2><a href="https://www.jedore.top/blog/" target="_blank">📝Articles</a></h2>
-                    <h2><a href="https://ctpapi.jedore.top/" target="_blank">📖CTP Docs</a></h2>
-                    <h2><a href="https://ctp-channels.jedore.top/" target="_blank">
-                        <img src="assets/dll-icon.png"
-                             width="32" height="32" alt="Dll icon" title="Dll icon" style="display: inline-block">
-                        openctp-ctp Channels Dlls</a></h2>
-                    <h2><a href="" target="_blank"></a></h2>
-                    <h2><a href="tools/python-mirrors/" target="_blank">🐍Python Mirrors</a></h2>
-                    <h2><a href="https://github.com/Jedore" target="_blank">
-                        <img src="assets/octocat.png"
-                             width="32" height="32" alt="Dll icon" title="Dll icon" style="display: inline-block">GitHub</a>
-                    </h2>
-                    <h2><a href="https://gitee.com/jedore/ctp-resources" target="_blank">CTPAPI各版本下载</a></h2>
-                    <h2><a href="https://github.com/Jedore/xgcondb" target="_blank">虚谷数据库Python接口驱动pip包</a></h2>
-
-                </div>
-            </div>
+<body class="bg-white font-['Helvetica']">
+<header class="bg-white text-gray-800 py-6 shadow-sm fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <div class="w-32 h-10">
+          <img src="assets/logo.jpg" alt="logo"
+               class="w-full h-full object-contain">
         </div>
-        <div class="footer flex items-center justify-center">
-            <div class="py-4">
-                <footer style="padding: 20px; position: fixed; bottom: 0; width: 100%;">
-                    <p class="whitespace-nowrap">© 2024. Jedore All rights reserved.</p>
-                </footer>
-            </div>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8 relative">
+        <div class="relative group">
+          <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="微信">
+            <i class="fab fa-weixin"></i>
+          </a>
+          <div
+              class="hidden group-hover:block absolute z-50 -left-20 mt-2 p-2 bg-white rounded-lg shadow-lg border border-gray-200">
+            <img src="https://ai-public.mastergo.com/ai/img_res/6c11356ecb2a076057163db7af57a71e.jpg" alt="微信二维码"
+                 class="w-[150px] h-[150px]">
+            <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">扫码关注公众号</p>
+          </div>
         </div>
+        <a href="https://github.com/Jedore" target="_blank" class="text-gray-600 hover:text-primary text-3xl"
+           title="Github">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="邮件">
+          <i class="far fa-envelope"></i>
+        </a>
+      </nav>
     </div>
-
-</div>
+  </div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-12 mt-24">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="https://ai-public.mastergo.com/ai/img_res/0201b32e2dbb8ec13b0b9c176ddc6365.jpg"
+             class="w-full h-full object-cover" alt="博客">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">小小文章</h2>
+      <p class="text-gray-400 mb-4">探索最新的技术文章和行业见解，包含量化交易、Python 编程等多个领域的专业内容。</p>
+      <a href="https://www.jedore.top/blog/" target="_blank"
+         class="inline-flex items-center text-primary hover:text-secondary">
+        查看详情
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="https://ai-public.mastergo.com/ai/img_res/2818d3f8b30486cd338b12df79c3774d.jpg"
+             class="w-full h-full object-cover" alt="Python镜像">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">Python国内镜像源</h2>
+      <p class="text-gray-400 mb-4">提供稳定、快速的 Python 版本镜像服务，确保您的开发环境搭建顺畅。</p>
+      <a href="tools/python-mirrors/" target="_blank"
+         class="inline-flex items-center text-primary hover:text-secondary">
+        前往下载
+        <i class="fas fa-download ml-2"></i>
+      </a>
+    </div>
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="https://ai-public.mastergo.com/ai/img_res/6f56ea27b8e1c0595442a7df4d8b8679.jpg"
+             class="w-full h-full object-cover" alt="开发项目">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
+      <p class="text-gray-400 mb-4">专业的技术团队提供量化交易系统开发、数据分析等定制化服务。</p>
+      <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
+        了解更多
+        <i class="fas fa-project-diagram ml-2"></i>
+      </a>
+    </div>
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="https://ai-public.mastergo.com/ai/img_res/cbea73296fc493fb81eb8c639767f59d.jpg"
+             class="w-full h-full object-cover" alt="CTP文档">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTP Docs</h2>
+      <p class="text-gray-400 mb-4">全面的 CTP 接口文档，包含详细的 API 说明、示例代码和最佳实践指南。</p>
+      <a href="https://ctpapi.jedore.top/" target="_blank"
+         class="inline-flex items-center text-primary hover:text-secondary">
+        浏览文档
+        <i class="fas fa-book ml-2"></i>
+      </a>
+    </div>
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="https://ai-public.mastergo.com/ai/img_res/9b6e5c33a2585adb679a0339ae8718b6.jpg"
+             class="w-full h-full object-cover" alt="CTPAPI">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTPAPI</h2>
+      <p class="text-gray-400 mb-4">各版本的 CTPAPI 接口文件下载，支持多个平台，包含完整的示例代码。</p>
+      <a href="https://gitee.com/jedore/ctp-resources" target="_blank"
+         class="inline-flex items-center text-primary hover:text-secondary">
+        获取 API
+        <i class="fas fa-code ml-2"></i>
+      </a>
+    </div>
+  </div>
+</main>
+<footer class="bg-gray-50 text-gray-800 py-6 mt-12 border-t">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center text-gray-500">
+      <p>&copy; 2025 Jedore. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
