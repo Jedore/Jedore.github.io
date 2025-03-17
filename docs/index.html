@@ -36,7 +36,9 @@
   </script>
   <style>
       body {
-          min-height: 1024px;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
           background-color: #ffffff;
       }
 
@@ -121,6 +123,11 @@
               gap: 20px;
           }
       }
+
+      /* 让 main 元素占据剩余空间 */
+      main {
+          flex-grow: 1;
+      }
   </style>
 </head>
 <body class="bg-white font-['Helvetica']">
@@ -162,16 +169,18 @@
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
         <img src="assets/development.png" loading="lazy" class="w-full h-full object-cover" alt="开发项目">
       </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接项目开发</h2>
       <p class="text-gray-400 mb-4">专业的技术团队提供web开发、CTP开发、数据分析等定制化服务。</p>
       <div class="nav-social-icon relative group">
         <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
-          意向请添加,备注来意 <i class="fab fa-weixin"></i>：Jedoreee
+          意向联系
+          <i class="fab fa-weixin"></i>
+          <!--          Jedoreee-->
         </a>
         <div
-            class="hidden group-hover:block absolute z-50 -left-20 bg-white rounded-lg shadow-lg border border-gray-200">
+            class="hidden group-hover:block absolute z-50 bg-white rounded-lg shadow-lg border border-gray-200">
           <img src="assets/wechat.png" alt="微信二维码" loading="lazy" class="w-[150px] h-[150px]">
-          <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">备注来意</p>
+          <!--          <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">备注来意</p>-->
         </div>
       </div>
     </div>
@@ -206,7 +215,7 @@
              class="w-full h-full object-cover" alt="CTP文档">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTP Docs</h2>
-      <p class="text-gray-400 mb-4">全面的 CTP 接口文档，包含详细的 API 说明、示例代码和最佳实践指南。</p>
+      <p class="text-gray-400 mb-4">全面的 CTP 文档，包含详细的 API 说明、示例代码和最佳实践指南。</p>
       <a href="https://ctpapi.jedore.top/" target="_blank"
          class="inline-flex items-center text-primary hover:text-secondary">
         浏览文档
@@ -218,7 +227,7 @@
         <img src="assets/ctpapi.png" loading="lazy" class="w-full h-full object-cover" alt="CTPAPI">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTPAPI</h2>
-      <p class="text-gray-400 mb-4">各版本的 CTPAPI 接口文件下载，支持多个平台，包含完整的示例代码。</p>
+      <p class="text-gray-400 mb-4">各版本的 CTPAPI 接口文件下载。</p>
       <a href="https://gitee.com/jedore/ctp-resources" target="_blank"
          class="inline-flex items-center text-primary hover:text-secondary">
         获取 API
@@ -230,7 +239,7 @@
 <footer class="bg-gray-50 text-gray-800 py-6 mt-12 border-t">
   <div class="max-w-3xl mx-auto px-4">
     <div class="text-center text-gray-500">
-      <p>&copy; <span id="year"></span> Jedore. All Rights Reserved.</p>
+      <strong><p>&copy; <span id="year"></span> Jedore. All Rights Reserved.</p></strong>
     </div>
   </div>
 </footer>
