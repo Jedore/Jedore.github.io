@@ -94,11 +94,10 @@
           }
 
           /* 图标尺寸调整 */
-          .nav-social-icon img {
-              width: 24px;
-              height: 24px;
-          }
-
+          /*.nav-social-icon img {*/
+          /*    width: 24px;*/
+          /*    height: 24px;*/
+          /*}*/
           /* 主体内容适配 */
           .main-content {
               padding: 0 15px;
@@ -134,17 +133,16 @@
         </div>
       </div>
       <nav class="nav-section right hidden md:flex items-center space-x-8 relative">
-        <div class="nav-social-icon relative group">
-          <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="微信">
-            <i class="fab fa-weixin"></i>
-          </a>
-          <div
-              class="hidden group-hover:block absolute z-50 -left-20 mt-2 p-2 bg-white rounded-lg shadow-lg border border-gray-200">
-            <img src="https://ai-public.mastergo.com/ai/img_res/6c11356ecb2a076057163db7af57a71e.jpg" alt="微信二维码"
-                 loading="lazy" class="w-[150px] h-[150px]">
-            <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">扫码关注公众号</p>
-          </div>
-        </div>
+        <!--        <div class="nav-social-icon relative group">-->
+        <!--          <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="微信">-->
+        <!--            <i class="fab fa-weixin"></i>-->
+        <!--          </a>-->
+        <!--          <div-->
+        <!--              class="hidden group-hover:block absolute z-50 -left-20 bg-white rounded-lg shadow-lg border border-gray-200">-->
+        <!--            <img src="assets/wechat.png" alt="微信二维码" loading="lazy" class="w-[150px] h-[150px]">-->
+        <!--            <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">添加备注来意</p>-->
+        <!--          </div>-->
+        <!--        </div>-->
         <a href="https://github.com/Jedore" target="_blank"
            class="nav-social-icon text-gray-600 hover:text-primary text-3xl"
            title="Github">
@@ -166,10 +164,16 @@
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
       <p class="text-gray-400 mb-4">专业的技术团队提供web开发、CTP开发、数据分析等定制化服务。</p>
-      <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
-        了解更多
-        <i class="fas fa-project-diagram ml-2"></i>
-      </a>
+      <div class="nav-social-icon relative group">
+        <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
+          意向请添加,备注来意 <i class="fab fa-weixin"></i>：Jedoreee
+        </a>
+        <div
+            class="hidden group-hover:block absolute z-50 -left-20 bg-white rounded-lg shadow-lg border border-gray-200">
+          <img src="assets/wechat.png" alt="微信二维码" loading="lazy" class="w-[150px] h-[150px]">
+          <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">备注来意</p>
+        </div>
+      </div>
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
