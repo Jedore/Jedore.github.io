@@ -53,22 +53,88 @@
           border-color: rgba(37, 99, 235, 0.3) !important;
       }
 
-      /*.group:hover .group-hover\:block {*/
-      /*    display: block;*/
-      /*}*/
+      html {
+          font-size: 16px;
+      }
+
+      @media (max-width: 480px) {
+          html {
+              font-size: 14px;
+          }
+      }
+
+      .nav-container {
+          display: flex;
+          justify-content: space-between; /* 关键属性 */
+          align-items: center;
+          width: 100%;
+      }
+
+      .nav-section.left {
+          /* 自动填充左侧空间 */
+          flex: 1 1 auto;
+          /* 强制内部元素左对齐 */
+          display: flex;
+          justify-content: flex-start;
+      }
+
+      /* 通用响应式规则 */
+      @media (max-width: 768px) {
+          /* 导航栏改造 */
+          .nav-container {
+              padding: 10px 15px;
+              flex-wrap: nowrap; /* 禁止换行 */
+          }
+
+          /* 社交图标容器 */
+          .nav-section.right {
+              display: flex;
+              gap: 12px; /* 图标间距 */
+              margin-left: auto; /* 右对齐 */
+          }
+
+          /* 图标尺寸调整 */
+          .nav-social-icon img {
+              width: 24px;
+              height: 24px;
+          }
+
+          /* 主体内容适配 */
+          .main-content {
+              padding: 0 15px;
+          }
+
+          /* 文章卡片响应式 */
+          .post-card {
+              width: 100%;
+              margin: 10px 0;
+          }
+
+          /* 移动端隐藏大图 */
+          .feature-image {
+              display: none;
+          }
+      }
+
+      @media (min-width: 769px) {
+          /* 桌面端专属样式 */
+          .nav-section.right {
+              gap: 20px;
+          }
+      }
   </style>
 </head>
 <body class="bg-white font-['Helvetica']">
 <header class="bg-white text-gray-800 py-6 shadow-sm fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center">
-        <div class="w-32 h-10">
-          <img src="assets/logo.jpg" alt="logo" loading="lazy" class="w-full h-full object-contain">
+    <div class="nav-container flex items-center justify-between">
+      <div class="nav-section left flex">
+        <div class="home-link w-32 h-10">
+          <img src="assets/logo.jpg" alt="logo" loading="lazy" class="h-full object-contain">
         </div>
       </div>
-      <nav class="hidden md:flex items-center space-x-8 relative">
-        <div class="relative group">
+      <nav class="nav-section right hidden md:flex items-center space-x-8 relative">
+        <div class="nav-social-icon relative group">
           <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="微信">
             <i class="fab fa-weixin"></i>
           </a>
@@ -79,25 +145,38 @@
             <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">扫码关注公众号</p>
           </div>
         </div>
-        <a href="https://github.com/Jedore" target="_blank" class="text-gray-600 hover:text-primary text-3xl"
+        <a href="https://github.com/Jedore" target="_blank"
+           class="nav-social-icon text-gray-600 hover:text-primary text-3xl"
            title="Github">
           <i class="fab fa-github"></i>
         </a>
-        <a href="mailto:jedore@qq.com" class="text-gray-600 hover:text-primary text-3xl" title="邮件">
+        <a href="mailto:jedore@qq.com" target="_blank" class="nav-social-icon text-gray-600 hover:text-primary text-3xl"
+           title="邮件">
           <i class="far fa-envelope"></i>
         </a>
       </nav>
     </div>
   </div>
 </header>
-<main class="max-w-7xl mx-auto px-4 py-12 mt-24">
+<main class="main-content max-w-7xl mx-auto px-4 py-12 mt-24">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/0201b32e2dbb8ec13b0b9c176ddc6365.jpg" loading="lazy"
+        <img src="assets/development.png" loading="lazy" class="w-full h-full object-cover" alt="开发项目">
+      </div>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
+      <p class="text-gray-400 mb-4">专业的技术团队提供web开发、CTP开发、数据分析等定制化服务。</p>
+      <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
+        了解更多
+        <i class="fas fa-project-diagram ml-2"></i>
+      </a>
+    </div>
+    <div class="card rounded-lg shadow-md p-6">
+      <div class="h-48 mb-4 rounded-lg overflow-hidden">
+        <img src="assets/articles.png" loading="lazy"
              class="w-full h-full object-cover" alt="博客">
       </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">小小文章</h2>
+      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">小小随记</h2>
       <p class="text-gray-400 mb-4">探索最新的技术文章和行业见解，包含量化交易、Python 编程等多个领域的专业内容。</p>
       <a href="https://www.jedore.top/blog/" target="_blank"
          class="inline-flex items-center text-primary hover:text-secondary">
@@ -107,8 +186,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/2818d3f8b30486cd338b12df79c3774d.jpg" loading="lazy"
-             class="w-full h-full object-cover" alt="Python镜像">
+        <img src="assets/python-mirror.png" loading="lazy" class="w-full h-full object-cover" alt="Python镜像">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">Python国内镜像源</h2>
       <p class="text-gray-400 mb-4">提供稳定、快速的 Python 版本镜像服务，确保您的开发环境搭建顺畅。</p>
@@ -120,19 +198,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/6f56ea27b8e1c0595442a7df4d8b8679.jpg" loading="lazy"
-             class="w-full h-full object-cover" alt="开发项目">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接开发项目</h2>
-      <p class="text-gray-400 mb-4">专业的技术团队提供量化交易系统开发、数据分析等定制化服务。</p>
-      <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
-        了解更多
-        <i class="fas fa-project-diagram ml-2"></i>
-      </a>
-    </div>
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/cbea73296fc493fb81eb8c639767f59d.jpg" loading="lazy"
+        <img src="assets/ctpdocs.png" loading="lazy"
              class="w-full h-full object-cover" alt="CTP文档">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTP Docs</h2>
@@ -145,8 +211,7 @@
     </div>
     <div class="card rounded-lg shadow-md p-6">
       <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="https://ai-public.mastergo.com/ai/img_res/9b6e5c33a2585adb679a0339ae8718b6.jpg" loading="lazy"
-             class="w-full h-full object-cover" alt="CTPAPI">
+        <img src="assets/ctpapi.png" loading="lazy" class="w-full h-full object-cover" alt="CTPAPI">
       </div>
       <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTPAPI</h2>
       <p class="text-gray-400 mb-4">各版本的 CTPAPI 接口文件下载，支持多个平台，包含完整的示例代码。</p>
