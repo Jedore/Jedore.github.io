@@ -31,9 +31,6 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    runs:
-      using: 'node20'
-      main: 'main.js'
     env:
       HUGO_VERSION: 0.121.1
     steps:
@@ -66,7 +63,7 @@ jobs:
             --destination ../docs/blog \
             --baseURL "${{ steps.pages.outputs.base_url }}/blog/"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
 
