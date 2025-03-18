@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    main pre {
+        display: flex;
+        flex-direction: column;
+        white-space: normal;
+    }
+
+    main pre a {
+        margin-bottom: 10px;
+    }
+}
