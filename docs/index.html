@@ -3,248 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JedoreHome</title>
+  <title>Jedore Home</title>
   <link rel="shortcut icon" href="assets/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2563eb',
-            secondary: '#1a1a1a'
-          },
-          borderRadius: {
-            'none': '0px',
-            'sm': '2px',
-            DEFAULT: '4px',
-            'md': '8px',
-            'lg': '12px',
-            'xl': '16px',
-            '2xl': '20px',
-            '3xl': '24px',
-            'full': '9999px',
-            'button': '4px'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-      body {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-          background-color: #ffffff;
-      }
-
-      .card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-          background: #ffffff !important;
-          border: 1px solid #e5e7eb !important;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
-          border-color: rgba(37, 99, 235, 0.3) !important;
-      }
-
-      html {
-          font-size: 16px;
-      }
-
-      @media (max-width: 480px) {
-          html {
-              font-size: 14px;
-          }
-      }
-
-      .nav-container {
-          display: flex;
-          justify-content: space-between; /* 关键属性 */
-          align-items: center;
-          width: 100%;
-      }
-
-      .nav-section.left {
-          /* 自动填充左侧空间 */
-          flex: 1 1 auto;
-          /* 强制内部元素左对齐 */
-          display: flex;
-          justify-content: flex-start;
-      }
-
-      /* 通用响应式规则 */
-      @media (max-width: 768px) {
-          /* 导航栏改造 */
-          .nav-container {
-              padding: 10px 15px;
-              flex-wrap: nowrap; /* 禁止换行 */
-          }
-
-          /* 社交图标容器 */
-          .nav-section.right {
-              display: flex;
-              gap: 12px; /* 图标间距 */
-              margin-left: auto; /* 右对齐 */
-          }
-
-          /* 图标尺寸调整 */
-          /*.nav-social-icon img {*/
-          /*    width: 24px;*/
-          /*    height: 24px;*/
-          /*}*/
-          /* 主体内容适配 */
-          .main-content {
-              padding: 0 15px;
-          }
-
-          /* 文章卡片响应式 */
-          .post-card {
-              width: 100%;
-              margin: 10px 0;
-          }
-
-          /* 移动端隐藏大图 */
-          .feature-image {
-              display: none;
-          }
-      }
-
-      @media (min-width: 769px) {
-          /* 桌面端专属样式 */
-          .nav-section.right {
-              gap: 20px;
-          }
-      }
-
-      /* 让 main 元素占据剩余空间 */
-      main {
-          flex-grow: 1;
-      }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <style></style>
 </head>
-<body class="bg-white font-['Helvetica']">
-<header class="bg-white text-gray-800 py-6 shadow-sm fixed top-0 left-0 right-0 z-50">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="nav-container flex items-center justify-between">
-      <div class="nav-section left flex">
-        <div class="home-link w-32 h-10">
-          <img src="assets/logo.jpg" alt="logo" loading="lazy" class="h-full object-contain">
-        </div>
+
+<body>
+<header>
+  <div class="nav-container">
+    <div class="nav-section left">
+      <div class="home-link">
+        <img src="assets/logo.jpg" alt="logo" loading="lazy">
       </div>
-      <nav class="nav-section right hidden md:flex items-center space-x-8 relative">
-        <!--        <div class="nav-social-icon relative group">-->
-        <!--          <a href="#" class="text-gray-600 hover:text-primary text-3xl" title="微信">-->
-        <!--            <i class="fab fa-weixin"></i>-->
-        <!--          </a>-->
-        <!--          <div-->
-        <!--              class="hidden group-hover:block absolute z-50 -left-20 bg-white rounded-lg shadow-lg border border-gray-200">-->
-        <!--            <img src="assets/wechat.png" alt="微信二维码" loading="lazy" class="w-[150px] h-[150px]">-->
-        <!--            <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">添加备注来意</p>-->
-        <!--          </div>-->
-        <!--        </div>-->
-        <a href="https://github.com/Jedore" target="_blank"
-           class="nav-social-icon text-gray-600 hover:text-primary text-3xl"
-           title="Github">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:jedore@qq.com" target="_blank" class="nav-social-icon text-gray-600 hover:text-primary text-3xl"
-           title="邮件">
-          <i class="far fa-envelope"></i>
-        </a>
-      </nav>
     </div>
+    <nav>
+      <a href="https://github.com/Jedore" target="_blank" title="Github">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height="32" width="32" fill="currentColor">
+          <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+        </svg>
+      </a>
+      <a href="mailto:jedore@qq.com" title="Mail">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32" fill="currentColor">
+          <path
+              d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"/>
+        </svg>
+      </a>
+    </nav>
   </div>
 </header>
-<main class="main-content max-w-7xl mx-auto px-4 py-12 mt-24">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="assets/development.png" loading="lazy" class="w-full h-full object-cover" alt="开发项目">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">承接项目开发</h2>
-      <p class="text-gray-400 mb-4">专业的技术团队提供web开发、CTP开发、数据分析等定制化服务。</p>
-      <div class="nav-social-icon relative group">
-        <a href="#" class="inline-flex items-center text-primary hover:text-secondary">
-          意向联系
-          <i class="fab fa-weixin"></i>
-          <!--          Jedoreee-->
-        </a>
-        <div
-            class="hidden group-hover:block absolute z-50 bg-white rounded-lg shadow-lg border border-gray-200">
-          <img src="assets/wechat.png" alt="微信二维码" loading="lazy" class="w-[150px] h-[150px]">
-          <!--          <p class="text-sm text-gray-600 mt-2 text-center whitespace-nowrap">备注来意</p>-->
-        </div>
+<main>
+  <div class="grid">
+    <div class="card">
+      <img src="assets/development.png" loading="lazy" alt="开发项目">
+      <h2>承接项目开发</h2>
+      <p>专业的技术团队提供web开发、CTP开发、数据分析等定制化服务。</p>
+      <a href="#" class="contact-link">
+        意向联系 &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="18" height="18" fill="currentColor">
+          <path
+              d="M385.2 167.6c6.4 0 12.6 .3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2 .1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3 .1 10-9.9 19.6-24.4 19.6z"/>
+        </svg>
+      </a>
+      <div class="qr-code">
+        <img src="assets/wechat.png" alt="微信二维码" loading="lazy" width="150" height="150">
       </div>
     </div>
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="assets/articles.png" loading="lazy"
-             class="w-full h-full object-cover" alt="博客">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">小小随记</h2>
-      <p class="text-gray-400 mb-4">探索最新的技术文章和行业见解，包含量化交易、Python 编程等多个领域的专业内容。</p>
-      <a href="https://www.jedore.top/blog/" target="_blank"
-         class="inline-flex items-center text-primary hover:text-secondary">
-        查看详情
-        <i class="fas fa-arrow-right ml-2"></i>
+    <div class="card">
+      <img src="assets/articles.png" loading="lazy" alt="博客">
+      <h2>小小随记</h2>
+      <p>探索最新的技术文章和行业见解，包含量化交易、Python 编程等多个领域的专业内容。</p>
+      <a href="https://www.jedore.top/blog/" target="_blank">
+        查看详情 &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+          <path
+              d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+        </svg>
       </a>
     </div>
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="assets/python-mirror.png" loading="lazy" class="w-full h-full object-cover" alt="Python镜像">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">Python国内镜像源</h2>
-      <p class="text-gray-400 mb-4">提供稳定、快速的 Python 版本镜像服务，确保您的开发环境搭建顺畅。</p>
-      <a href="tools/python-mirrors/" target="_blank"
-         class="inline-flex items-center text-primary hover:text-secondary">
-        前往下载
-        <i class="fas fa-download ml-2"></i>
+    <div class="card">
+      <img src="assets/python-mirror.png" loading="lazy" alt="Python镜像">
+      <h2>Python国内镜像源</h2>
+      <p>提供稳定、快速的 Python 版本镜像服务，确保您的开发环境搭建顺畅。</p>
+      <a href="tools/python-mirrors/" target="_blank">
+        前往下载 &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+          <path
+              d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+        </svg>
       </a>
     </div>
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="assets/ctpdocs.png" loading="lazy"
-             class="w-full h-full object-cover" alt="CTP文档">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTP Docs</h2>
-      <p class="text-gray-400 mb-4">全面的 CTP 文档，包含详细的 API 说明、示例代码和最佳实践指南。</p>
-      <a href="https://ctpapi.jedore.top/" target="_blank"
-         class="inline-flex items-center text-primary hover:text-secondary">
-        浏览文档
-        <i class="fas fa-book ml-2"></i>
+    <div class="card">
+      <img src="assets/ctpdocs.png" loading="lazy" alt="CTP文档">
+      <h2>CTP Docs</h2>
+      <p>全面的 CTP 文档，包含详细的 API 说明、示例代码和最佳实践指南。</p>
+      <a href="https://ctpapi.jedore.top/" target="_blank">
+        浏览文档&nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18" width="18" fill="currentColor">
+          <path
+              d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+        </svg>
       </a>
     </div>
-    <div class="card rounded-lg shadow-md p-6">
-      <div class="h-48 mb-4 rounded-lg overflow-hidden">
-        <img src="assets/ctpapi.png" loading="lazy" class="w-full h-full object-cover" alt="CTPAPI">
-      </div>
-      <h2 class="text-2xl font-bold mb-3 text-primary font-['Futura']">CTPAPI</h2>
-      <p class="text-gray-400 mb-4">各版本的 CTPAPI 接口文件下载。</p>
-      <a href="https://gitee.com/jedore/ctp-resources" target="_blank"
-         class="inline-flex items-center text-primary hover:text-secondary">
-        获取 API
-        <i class="fas fa-code ml-2"></i>
+    <div class="card">
+      <img src="assets/ctpapi.png" loading="lazy" alt="CTPAPI">
+      <h2>CTPAPI</h2>
+      <p>各版本的 CTPAPI 接口文件下载。</p><br>
+      <a href="https://gitee.com/jedore/ctp-resources" target="_blank">
+        获取 API &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="18" fill="currentColor">
+          <path
+              d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM153 289l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L71 337c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM265 255l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/>
+        </svg>
       </a>
     </div>
   </div>
 </main>
-<footer class="bg-gray-50 text-gray-800 py-6 mt-12 border-t">
-  <div class="max-w-3xl mx-auto px-4">
-    <div class="text-center text-gray-500">
-      <strong><p>&copy; <span id="year"></span> Jedore. All Rights Reserved.</p></strong>
-    </div>
-  </div>
+<footer>
+  <div><strong>&copy; <span id="year"></span> Jedore. All Rights Reserved.</strong></div>
 </footer>
-</body>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+</body>
 </html>
