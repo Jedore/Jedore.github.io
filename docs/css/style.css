@@ -42,16 +42,6 @@ header {
     font-weight: bold;
 }
 
-@media (max-width: 768px) {
-    .nav-title {
-        margin-left: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .home-link {
-        width: 3rem;
-    }
-}
 
 .home-link {
     width: 5rem;
@@ -94,17 +84,6 @@ main {
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 .card {
     border: 1px solid #e5e7eb;
@@ -183,7 +162,6 @@ main {
 
 footer {
     background-color: #f9fafb;
-    /*color: #4b5563;*/
     padding: 1.5rem 0;
     border-top: 1px solid #e5e7eb;
 }
@@ -195,4 +173,28 @@ footer div {
     text-align: center;
     color: rgba(107, 114, 128, 1);
     font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-title {
+        margin-left: 0.25rem;
+        font-size: 1rem;
+    }
+
+    .home-link {
+        width: 2.5rem;
+    }
 }
