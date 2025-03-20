@@ -33,16 +33,24 @@ header {
     flex: 1 1 auto;
     display: flex;
     justify-content: flex-start;
+    align-items: center; /* 垂直居中对齐 */
+}
+
+.nav-title {
+    margin-left: 1rem; /* 标题与 logo 之间的间距 */
+    font-size: 1.5rem; /* 标题字体大小 */
+    font-weight: bold; /* 标题字体加粗 */
 }
 
 .home-link {
-    width: 8rem;
+    width: 5rem;
     height: 2.5rem;
 }
 
 .home-link img {
     height: 100%;
     object-fit: contain;
+    border-radius: 50%;
 }
 
 nav {
