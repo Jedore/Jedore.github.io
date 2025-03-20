@@ -9,7 +9,7 @@ BASE_URL = 'https://registry.npmmirror.com/-/binary/python/'
 CLIENT = httpx.AsyncClient(timeout=10)
 
 
-async def parse_page(url: str, title: str = 'Index of /Python/',
+async def parse_page(url: str, title: str = 'Index of /',
                      path: str = 'docs/tools/python-mirrors/', level: int = 1):
     if not os.path.exists(path):
         os.makedirs(path)
@@ -51,6 +51,12 @@ async def parse_page(url: str, title: str = 'Index of /Python/',
 
 async def gen_html(filename: str, title: str, contents: list, level: int):
     print('Generating html', filename)
+    if level == 1:
+        root = '#'
+        last = '#'
+    else:
+        root = '../' * (level - 1)
+        last = '../'
     headers = [
         f'''<!DOCTYPE html>
 <head>
@@ -61,14 +67,14 @@ async def gen_html(filename: str, title: str, contents: list, level: int):
   <link rel="stylesheet" href="{"../" * level}../css/style.css">
   <link rel="stylesheet" href="{"../" * level}../css/python-mirror.css">
 </head>
-
 <body>
 <header>
   <div class="nav-container">
     <div class="nav-section left">
       <div class="home-link">
-        <img src="{"../" * level}../assets/logo.jpg" alt="logo" loading="lazy">
+        <img src="{"../" * level}../assets/python-mirror-logo.png" alt="logo" loading="lazy">
       </div>
+      <h1 class="nav-title">Python国内镜像源</h1>
     </div>
     <nav>
       <a href="https://github.com/Jedore" target="_blank" title="Github">
@@ -86,12 +92,11 @@ async def gen_html(filename: str, title: str, contents: list, level: int):
     </nav>
   </div>
 </header>
-
 <main>
 <h2>{title}</h2>
 <pre>
-<a href="/">/</a>
-<a href="../">../</a>'''
+<a href="{root}">/</a>
+<a href="{last}">../</a>'''
     ]
     tails = [
         f'''
