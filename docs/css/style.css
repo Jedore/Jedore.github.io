@@ -33,13 +33,24 @@ header {
     flex: 1 1 auto;
     display: flex;
     justify-content: flex-start;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center;
 }
 
 .nav-title {
-    margin-left: 1rem; /* 标题与 logo 之间的间距 */
-    font-size: 1.5rem; /* 标题字体大小 */
-    font-weight: bold; /* 标题字体加粗 */
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .nav-title {
+        margin-left: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .home-link {
+        width: 3rem;
+    }
 }
 
 .home-link {
@@ -145,11 +156,11 @@ main {
 .contact-link {
     display: inline-flex;
     align-items: center;
-    color: #2563eb; /* primary 颜色 */
+    color: #2563eb;
 }
 
 .contact-link:hover {
-    color: #1a1a1a; /* secondary 颜色 */
+    color: #1a1a1a;
 }
 
 .qr-code {
@@ -157,7 +168,7 @@ main {
     position: absolute;
     z-index: 50;
     background-color: white;
-    border-radius: 8px; /* 近似 md 圆角 */
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
 }
