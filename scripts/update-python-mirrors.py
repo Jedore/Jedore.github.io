@@ -77,6 +77,9 @@ async def gen_html(filename: str, title: str, contents: list, level: int):
       <h1 class="nav-title">Python国内镜像源</h1>
     </div>
     <nav>
+      <a href="https://jedore.top" target="_blank" title="Jedore Home">
+        <img src="../../assets/jedore.png" alt="Jedore" style="width: 32px;height: 32px;" loading="lazy">
+      </a>
       <a href="https://github.com/Jedore" target="_blank" title="Github">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height="32" width="32" fill="currentColor">
           <path
