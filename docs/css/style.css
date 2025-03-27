@@ -66,6 +66,10 @@ nav a {
     font-size: 1.5rem;
 }
 
+nav img {
+    border-radius: 50%;
+}
+
 nav a:hover {
     color: #2563eb;
 }
