@@ -14,4 +14,7 @@ hugo server
 
 # new blog
 hugo new content content/zh-cn/post/<post dir name>/index.md
+
+# git root
+python scripts/update-python-mirrors.py
 ```
