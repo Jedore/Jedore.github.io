@@ -66,6 +66,15 @@ async def gen_html(filename: str, title: str, contents: list, level: int):
   <link rel="shortcut icon" href="{"../" * level}../assets/favicon.ico">
   <link rel="stylesheet" href="{"../" * level}../css/style.css">
   <link rel="stylesheet" href="{"../" * level}../css/python-mirror.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function () {{
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c6f7bdb218ebd6e60626b1c1fde81a2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    }})();
+  </script>
 </head>
 <body>
 <header>
