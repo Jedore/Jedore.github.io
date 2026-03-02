@@ -50,7 +50,7 @@ async def parse_page(url: str, title: str = 'Index of /',
 
 
 async def gen_html(filename: str, title: str, contents: list, level: int):
-    print('Generating html', filename)
+    #print('Generating html', filename)
     if level == 1:
         root = '#'
         last = '#'
